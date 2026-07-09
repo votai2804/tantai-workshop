@@ -12,22 +12,22 @@
     <title>Deploy Frontend to AWS Amplify :: Internship Report</title>
 
     
-    <link href="/css/nucleus.css?1783631135" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1783631135" rel="stylesheet">
-    <link href="/css/hybrid.css?1783631135" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1783631135" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1783631135" rel="stylesheet">
-    <link href="/css/auto-complete.css?1783631135" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1783631135" rel="stylesheet">
-    <link href="/css/theme.css?1783631135" rel="stylesheet">
-    <link href="/css/tabs.css?1783631135" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1783631135" rel="stylesheet">
+    <link href="/css/nucleus.css?1783639701" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1783639701" rel="stylesheet">
+    <link href="/css/hybrid.css?1783639701" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1783639701" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1783639701" rel="stylesheet">
+    <link href="/css/auto-complete.css?1783639701" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1783639701" rel="stylesheet">
+    <link href="/css/theme.css?1783639701" rel="stylesheet">
+    <link href="/css/tabs.css?1783639701" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1783639701" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1783631135" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1783639701" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1783631135"></script>
+    <script src="/js/jquery-3.3.1.min.js?1783639701"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1783631135"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1783631135"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1783639701"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1783639701"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1783631135"></script>
+<script type="text/javascript" src="/js/search.js?1783639701"></script>
 
     
   </div>
@@ -998,13 +998,41 @@
  
   
     
-    <li data-nav-id="/5-workshop/5.6-cleanup/" title="Clean up" class="dd-item
+    <li data-nav-id="/5-workshop/5.6-cognito/" title="Configure Amazon Cognito as Authorizer" class="dd-item
         
         
         
         ">
-      <a href="/5-workshop/5.6-cleanup/">
-           <b> 5.6. </b> Clean up
+      <a href="/5-workshop/5.6-cognito/">
+           <b> 5.6. </b> Configure Amazon Cognito as Authorizer
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-workshop/5.7-cleanup/" title="Clean up" class="dd-item
+        
+        
+        
+        ">
+      <a href="/5-workshop/5.7-cleanup/">
+           <b> 5.7. </b> Clean up
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1250,27 +1278,27 @@
 <ol>
 <li>
 <p>Navigate to the <strong>AWS Amplify</strong> console. If you do not have any apps, click <strong>Deploy an app</strong>. Otherwise, click <strong>Create new app</strong>.</p>
-<p><img src="/images/5-Workshop/deloy-app.png" alt="deploy-app"></p>
+<p><img src="/images/5-Workshop/5.3-Amplify/deloy-app.png" alt="deploy-app"></p>
 </li>
 <li>
 <p>Choose <strong>GitHub</strong> as the source provider to connect your code repository and click <strong>Next</strong>.</p>
-<p><img src="/images/5-Workshop/Ch%E1%BB%8Dn%20GitHub.png" alt="select-github"></p>
+<p><img src="/images/5-Workshop/5.3-Amplify/Ch%E1%BB%8Dn%20GitHub.png" alt="select-github"></p>
 </li>
 <li>
 <p>Authenticate with your GitHub account when prompted to authorize AWS Amplify to access your repositories.</p>
-<p><img src="/images/5-Workshop/X%C3%A1c%20th%E1%BB%B1c%20GitHub.png" alt="auth-github"></p>
+<p><img src="/images/5-Workshop/5.3-Amplify/X%C3%A1c%20th%E1%BB%B1c%20GitHub.png" alt="auth-github"></p>
 </li>
 <li>
 <p>Select your frontend repository and choose the specific branch containing your interface code (e.g. <code>main</code> or custom frontend branch). Click <strong>Next</strong>.</p>
-<p><img src="/images/5-Workshop/nh%C3%A1nh%20giao%20di%E1%BB%87n.png" alt="select-branch"></p>
+<p><img src="/images/5-Workshop/5.3-Amplify/nh%C3%A1nh%20giao%20di%E1%BB%87n.png" alt="select-branch"></p>
 </li>
 <li>
 <p>Under Build settings, stick to the <strong>default settings</strong>. Amplify automatically auto-detects the build command (e.g., <code>npm run build</code>) and output directory. Click <strong>Next</strong> to review, and then click <strong>Save and deploy</strong>.</p>
-<p><img src="/images/5-Workshop/save%20and%20deploy%20app.png" alt="save-deploy"></p>
+<p><img src="/images/5-Workshop/5.3-Amplify/save%20and%20deploy%20app.png" alt="save-deploy"></p>
 </li>
 <li>
 <p>Wait a few minutes for the build phases (Provision, Build, Deploy) to complete.</p>
-<p><img src="/images/5-Workshop/deploy%20ra%20trang%20web.png" alt="deployed-site"></p>
+<p><img src="/images/5-Workshop/5.3-Amplify/deploy%20ra%20trang%20web.png" alt="deployed-site"></p>
 </li>
 </ol>
 <p>Once finished, AWS Amplify will generate a default web URL (e.g., <code>https://main.d1w4ziet0548q.amplifyapp.com/</code>). Note this URL down, as it will be used as the origin in the next CloudFront setup.</p>
@@ -1837,6 +1865,22 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -1894,19 +1938,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1783631135"></script>
-    <script src="/js/perfect-scrollbar.min.js?1783631135"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1783631135"></script>
-    <script src="/js/jquery.sticky.js?1783631135"></script>
-    <script src="/js/featherlight.min.js?1783631135"></script>
-    <script src="/js/highlight.pack.js?1783631135"></script>
+    <script src="/js/clipboard.min.js?1783639701"></script>
+    <script src="/js/perfect-scrollbar.min.js?1783639701"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1783639701"></script>
+    <script src="/js/jquery.sticky.js?1783639701"></script>
+    <script src="/js/featherlight.min.js?1783639701"></script>
+    <script src="/js/highlight.pack.js?1783639701"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1783631135"></script>
-    <script src="/js/learn.js?1783631135"></script>
-    <script src="/js/hugo-learn.js?1783631135"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1783639701"></script>
+    <script src="/js/learn.js?1783639701"></script>
+    <script src="/js/hugo-learn.js?1783639701"></script>
     
         
-            <script src="/mermaid/mermaid.js?1783631135"></script>
+            <script src="/mermaid/mermaid.js?1783639701"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

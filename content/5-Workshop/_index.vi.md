@@ -25,4 +25,5 @@ Bạn sẽ làm việc trực tiếp với các dịch vụ AWS quan trọng sau
 3. [Đẩy giao diện lên AWS Amplify](5.3-Amplify/)
 4. [Kích hoạt CloudFront, WAF & Route 53](5.4-CloudFront/)
 5. [Khởi tạo API Gateway và liên kết](5.5-APIGateway/)
-6. [Dọn dẹp tài nguyên](5.6-Cleanup/)
+6. [Cấu hình Amazon Cognito làm Authorizer](5.6-Cognito/)
+7. [Dọn dẹp tài nguyên](5.7-Cleanup/)

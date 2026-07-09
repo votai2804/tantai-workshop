@@ -23,27 +23,27 @@ Adding Amazon CloudFront in front of AWS Amplify provides several benefits:
 
 1. Go to the **Amazon CloudFront** console and click **Create distribution**.
 
-   ![create-distribution](/images/5-Workshop/Create%20distributions.png)
+   ![create-distribution](/images/5-Workshop/5.4-CloudFront/Create%20distributions.png)
 
 2. Under the distribution settings, give the distribution a name.
 
-   ![distribution-name](/images/5-Workshop/Distributions%20name.png)
+   ![distribution-name](/images/5-Workshop/5.4-CloudFront/Distributions%20name.png)
 
 3. For the **Origin type**, select **Other**. Paste the Amplify web hosting URL (e.g., `main.d1w4ziet0548q.amplifyapp.com`) into the **Custom origin** domain input.
 
-   ![origin-type](/images/5-Workshop/Origin%20type%20chọn%20Other.png)
+   ![origin-type](/images/5-Workshop/5.4-CloudFront/Origin%20type%20chọn%20Other.png)
 
 4. Scroll down to Web Application Firewall (WAF). Keep the default selection: **Enable security protection** to activate WAF with pre-configured managed rules.
 
-   ![enable-waf](/images/5-Workshop/mặc%20định%20để%20kích%20hoạt%20WAF.png)
+   ![enable-waf](/images/5-Workshop/5.4-CloudFront/mặc%20định%20để%20kích%20hoạt%20WAF.png)
 
 5. Review the settings, click next, and click **Create distribution**.
 
-   ![review-distribution](/images/5-Workshop/review%20and%20create.png)
+   ![review-distribution](/images/5-Workshop/5.4-CloudFront/review%20and%20create.png)
 
 6. Once the distribution status is *Enabled*, copy the generated **Distribution domain name** (e.g., `d38upky9nltxkn.cloudfront.net`).
 
-   ![distribution-created](/images/5-Workshop/thành%20công%20CloudFront.png)
+   ![distribution-created](/images/5-Workshop/5.4-CloudFront/thành%20công%20CloudFront.png)
 
 ---
 
@@ -51,11 +51,11 @@ Adding Amazon CloudFront in front of AWS Amplify provides several benefits:
 
 1. Go to **Route 53** and select **Hosted zones**.
 
-   ![hosted-zones](/images/5-Workshop/Hosted%20zones.png)
+   ![hosted-zones](/images/5-Workshop/5.4-CloudFront/Hosted%20zones.png)
 
 2. Choose your target hosted zone and click **Create record**.
 
-   ![create-record](/images/5-Workshop/Create%20hosted%20zone.png)
+   ![create-record](/images/5-Workshop/5.4-CloudFront/Create%20hosted%20zone.png)
 
 3. Set up the DNS record:
    - Toggle **Alias** to **Yes**.
@@ -63,6 +63,6 @@ Adding Amazon CloudFront in front of AWS Amplify provides several benefits:
    - Paste or select the CloudFront distribution domain name you copied earlier.
    - Click **Create records**.
 
-   ![route53-record](/images/5-Workshop/xong%20route%2053.png)
+   ![route53-record](/images/5-Workshop/5.4-CloudFront/xong%20route%2053.png)
 
 Your frontend is now secure, globally cached, and accessible via your custom domain!

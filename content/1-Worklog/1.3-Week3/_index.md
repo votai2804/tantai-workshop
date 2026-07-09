@@ -1,29 +1,27 @@
 ---
-
 title: "Week 3 Worklog"
 date: 2026-05-04
 weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
-----------------------
+---
 
 ### Week 3 Objectives:
+* Attend offline AWS events.
+* Study internal documentation framework Bmad.
+* **Project:** Ideate the internship project topic.
 
-* Explore AWS database services in depth.
-* Learn about AWS Bedrock and its real-world AI applications.
+### Tasks to be carried out this week (04/05 - 10/05/2026):
 
-### Tasks to be carried out this week:
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 2 | Attend Offline AWS knowledge sharing event | 04/05/2026 | 04/05/2026 | Event |
+| 3 | Research internal documentation Bmad & standard cloud project structures | 05/05/2026 | 05/05/2026 | Bmad Docs |
+| 4 | Continue Module 02 & finish supporting exercises | 06/05/2026 | 06/05/2026 | AWS Academy |
+| 5 | Practice lab: Completing Lab 03 | 07/05/2026 | 07/05/2026 | [Link bài Lab](https://...) <br><br> ![Ảnh Lab]() |
+| 6 | **Project:** Conduct research and finalize project idea: select **AI Riddle Generator** | 08/05/2026 | 08/05/2026 | Project Ideation |
 
-| Day | Task                                       | Start Date | Completion Date | Reference Material |
-| --- | ------------------------------------------ | ---------- | --------------- | ------------------ |
-| 2   | Learn Amazon RDS and DynamoDB services     | 04/05/2026 | 04/05/2026      | AWS Docs           |
-| 3   | Practice creating databases on RDS         | 05/05/2026 | 05/05/2026      | AWS Practice       |
-| 4   | Study AWS Bedrock and AI foundation models | 06/05/2026 | 06/05/2026      | AWS Docs           |
-| 5   | Practice calling Bedrock APIs              | 07/05/2026 | 08/05/2026      | AWS Practice       |
-| 6   | Review knowledge and create demo           | 09/05/2026 | 09/05/2026      | Internal Docs      |
 
 ### Week 3 Achievements:
-
-* Better understanding of RDS and DynamoDB.
-* Successfully created databases on AWS.
-* Learned how AWS Bedrock works and AI integration basics.
+* Gained deeper insight into Bmad documentation structure.
+* Finalized project topic choice: AI Riddle Generator.

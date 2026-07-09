@@ -1,25 +1,27 @@
 ---
 title: "Worklog Tuần 9"
-date: 2026-06-12
+date: 2026-06-15
 weight: 9
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
 
 ### Mục tiêu tuần 9:
-* Bắt đầu Giai đoạn 3: Lưu trữ dữ liệu.
-* Học Module 6.
+* Tham gia AWS Event.
+* Hoàn thành chùm Lab thực hành: 22, 27, 28, 30, 33, 44, 48.
+* **Dự án:** Triển khai host giao diện trên Amplify.
 
-### Các công việc triển khai (12/06 - 18/06/2026):
+### Các công việc triển khai (15/06 - 21/06/2026):
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày kết thúc | Ghi chú |
 | --- | --- | --- | --- | --- |
-| 6 | Học Module 6 (Module cuối cùng) | 12/06/2026 | 12/06/2026 | AWS Academy |
-| 2 | Tham gia sự kiện nội bộ & **Dự án:** Cấu hình Amazon DynamoDB | 15/06/2026 | 15/06/2026 | Data Persistence |
-| 3 | **Dự án:** Viết logic Lambda lưu lịch sử vào DB | 16/06/2026 | 16/06/2026 | DynamoDB PutItem |
-| 4 | Thực hành Lab 22 | 17/06/2026 | 17/06/2026 | AWS Lab |
-| 5 | Thực hành Lab 27 | 18/06/2026 | 18/06/2026 | AWS Lab |
+| 2 | Tham gia sự kiện công nghệ AWS (ngày 20/6) | 15/06/2026 | 15/06/2026 | Event |
+| 3 | Thực hành Lab 22, Lab 27, Lab 28 | 16/06/2026 | 16/06/2026 | [Link bài Lab](https://...) <br><br> ![Ảnh Lab]() |
+| 4 | Thực hành Lab 30, Lab 33 | 17/06/2026 | 17/06/2026 | [Link bài Lab](https://...) <br><br> ![Ảnh Lab]() |
+| 5 | Thực hành Lab 44, Lab 48 | 18/06/2026 | 18/06/2026 | [Link bài Lab](https://...) <br><br> ![Ảnh Lab]() |
+| 6 | **Dự án (Triển khai Tuần 5/6):** Frontend Hosting - Liên kết Amplify với kho lưu trữ GitHub chứa giao diện React, thiết lập biến môi trường kết nối API | 19/06/2026 | 19/06/2026 | Triển khai dự án (Implementation) |
+
 
 ### Kết quả đạt được:
-* Lịch sử tạo câu đố đã được lưu trữ thành công trên DynamoDB.
-* Đang hoàn thành lộ trình học Module 6.
+* Hoàn thành xuất sắc 7 bài Lab thực hành.
+* Giao diện web tĩnh của dự án đã được tự động deploy thành công trên AWS Amplify qua GitHub.

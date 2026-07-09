@@ -25,4 +25,5 @@ You will work with the following key AWS services:
 3. [Deploy Frontend on AWS Amplify](5.3-Amplify/)
 4. [Enable CloudFront, WAF & Route 53](5.4-CloudFront/)
 5. [Connect Frontend with API Gateway](5.5-APIGateway/)
-6. [Cleanup Resources](5.6-Cleanup/)
+6. [Configure Amazon Cognito as Authorizer](5.6-Cognito/)
+7. [Cleanup Resources](5.7-Cleanup/)

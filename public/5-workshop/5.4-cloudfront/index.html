@@ -12,22 +12,22 @@
     <title>Enable CloudFront, WAF &amp; Route 53 :: Internship Report</title>
 
     
-    <link href="/css/nucleus.css?1783631135" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1783631135" rel="stylesheet">
-    <link href="/css/hybrid.css?1783631135" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1783631135" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1783631135" rel="stylesheet">
-    <link href="/css/auto-complete.css?1783631135" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1783631135" rel="stylesheet">
-    <link href="/css/theme.css?1783631135" rel="stylesheet">
-    <link href="/css/tabs.css?1783631135" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1783631135" rel="stylesheet">
+    <link href="/css/nucleus.css?1783639701" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1783639701" rel="stylesheet">
+    <link href="/css/hybrid.css?1783639701" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1783639701" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1783639701" rel="stylesheet">
+    <link href="/css/auto-complete.css?1783639701" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1783639701" rel="stylesheet">
+    <link href="/css/theme.css?1783639701" rel="stylesheet">
+    <link href="/css/tabs.css?1783639701" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1783639701" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1783631135" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1783639701" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1783631135"></script>
+    <script src="/js/jquery-3.3.1.min.js?1783639701"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1783631135"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1783631135"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1783639701"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1783639701"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1783631135"></script>
+<script type="text/javascript" src="/js/search.js?1783639701"></script>
 
     
   </div>
@@ -998,13 +998,41 @@
  
   
     
-    <li data-nav-id="/5-workshop/5.6-cleanup/" title="Clean up" class="dd-item
+    <li data-nav-id="/5-workshop/5.6-cognito/" title="Configure Amazon Cognito as Authorizer" class="dd-item
         
         
         
         ">
-      <a href="/5-workshop/5.6-cleanup/">
-           <b> 5.6. </b> Clean up
+      <a href="/5-workshop/5.6-cognito/">
+           <b> 5.6. </b> Configure Amazon Cognito as Authorizer
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-workshop/5.7-cleanup/" title="Clean up" class="dd-item
+        
+        
+        
+        ">
+      <a href="/5-workshop/5.7-cleanup/">
+           <b> 5.7. </b> Clean up
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1257,27 +1285,27 @@
 <ol>
 <li>
 <p>Go to the <strong>Amazon CloudFront</strong> console and click <strong>Create distribution</strong>.</p>
-<p><img src="/images/5-Workshop/Create%20distributions.png" alt="create-distribution"></p>
+<p><img src="/images/5-Workshop/5.4-CloudFront/Create%20distributions.png" alt="create-distribution"></p>
 </li>
 <li>
 <p>Under the distribution settings, give the distribution a name.</p>
-<p><img src="/images/5-Workshop/Distributions%20name.png" alt="distribution-name"></p>
+<p><img src="/images/5-Workshop/5.4-CloudFront/Distributions%20name.png" alt="distribution-name"></p>
 </li>
 <li>
 <p>For the <strong>Origin type</strong>, select <strong>Other</strong>. Paste the Amplify web hosting URL (e.g., <code>main.d1w4ziet0548q.amplifyapp.com</code>) into the <strong>Custom origin</strong> domain input.</p>
-<p><img src="/images/5-Workshop/Origin%20type%20ch%E1%BB%8Dn%20Other.png" alt="origin-type"></p>
+<p><img src="/images/5-Workshop/5.4-CloudFront/Origin%20type%20ch%E1%BB%8Dn%20Other.png" alt="origin-type"></p>
 </li>
 <li>
 <p>Scroll down to Web Application Firewall (WAF). Keep the default selection: <strong>Enable security protection</strong> to activate WAF with pre-configured managed rules.</p>
-<p><img src="/images/5-Workshop/m%E1%BA%B7c%20%C4%91%E1%BB%8Bnh%20%C4%91%E1%BB%83%20k%C3%ADch%20ho%E1%BA%A1t%20WAF.png" alt="enable-waf"></p>
+<p><img src="/images/5-Workshop/5.4-CloudFront/m%E1%BA%B7c%20%C4%91%E1%BB%8Bnh%20%C4%91%E1%BB%83%20k%C3%ADch%20ho%E1%BA%A1t%20WAF.png" alt="enable-waf"></p>
 </li>
 <li>
 <p>Review the settings, click next, and click <strong>Create distribution</strong>.</p>
-<p><img src="/images/5-Workshop/review%20and%20create.png" alt="review-distribution"></p>
+<p><img src="/images/5-Workshop/5.4-CloudFront/review%20and%20create.png" alt="review-distribution"></p>
 </li>
 <li>
 <p>Once the distribution status is <em>Enabled</em>, copy the generated <strong>Distribution domain name</strong> (e.g., <code>d38upky9nltxkn.cloudfront.net</code>).</p>
-<p><img src="/images/5-Workshop/th%C3%A0nh%20c%C3%B4ng%20CloudFront.png" alt="distribution-created"></p>
+<p><img src="/images/5-Workshop/5.4-CloudFront/th%C3%A0nh%20c%C3%B4ng%20CloudFront.png" alt="distribution-created"></p>
 </li>
 </ol>
 <hr>
@@ -1285,11 +1313,11 @@
 <ol>
 <li>
 <p>Go to <strong>Route 53</strong> and select <strong>Hosted zones</strong>.</p>
-<p><img src="/images/5-Workshop/Hosted%20zones.png" alt="hosted-zones"></p>
+<p><img src="/images/5-Workshop/5.4-CloudFront/Hosted%20zones.png" alt="hosted-zones"></p>
 </li>
 <li>
 <p>Choose your target hosted zone and click <strong>Create record</strong>.</p>
-<p><img src="/images/5-Workshop/Create%20hosted%20zone.png" alt="create-record"></p>
+<p><img src="/images/5-Workshop/5.4-CloudFront/Create%20hosted%20zone.png" alt="create-record"></p>
 </li>
 <li>
 <p>Set up the DNS record:</p>
@@ -1299,7 +1327,7 @@
 <li>Paste or select the CloudFront distribution domain name you copied earlier.</li>
 <li>Click <strong>Create records</strong>.</li>
 </ul>
-<p><img src="/images/5-Workshop/xong%20route%2053.png" alt="route53-record"></p>
+<p><img src="/images/5-Workshop/5.4-CloudFront/xong%20route%2053.png" alt="route53-record"></p>
 </li>
 </ol>
 <p>Your frontend is now secure, globally cached, and accessible via your custom domain!</p>
@@ -1866,6 +1894,22 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -1923,19 +1967,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1783631135"></script>
-    <script src="/js/perfect-scrollbar.min.js?1783631135"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1783631135"></script>
-    <script src="/js/jquery.sticky.js?1783631135"></script>
-    <script src="/js/featherlight.min.js?1783631135"></script>
-    <script src="/js/highlight.pack.js?1783631135"></script>
+    <script src="/js/clipboard.min.js?1783639701"></script>
+    <script src="/js/perfect-scrollbar.min.js?1783639701"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1783639701"></script>
+    <script src="/js/jquery.sticky.js?1783639701"></script>
+    <script src="/js/featherlight.min.js?1783639701"></script>
+    <script src="/js/highlight.pack.js?1783639701"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1783631135"></script>
-    <script src="/js/learn.js?1783631135"></script>
-    <script src="/js/hugo-learn.js?1783631135"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1783639701"></script>
+    <script src="/js/learn.js?1783639701"></script>
+    <script src="/js/hugo-learn.js?1783639701"></script>
     
         
-            <script src="/mermaid/mermaid.js?1783631135"></script>
+            <script src="/mermaid/mermaid.js?1783639701"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
