@@ -15,7 +15,7 @@ pre: " <b> 1.11. </b> "
 | Thứ | Công việc | Ngày bắt đầu | Ngày kết thúc | Ghi chú |
 | --- | --- | --- | --- | --- |
 | 2 | Viết bài post chia sẻ kỹ thuật: "How Lore rethinks binary asset storage on AWS" | 29/06/2026 | 30/06/2026 | Blog post |
-| 4 | **Dự án:** Biên soạn tài liệu và chụp ảnh các bước deploy Amplify, CloudFront, Route 53, API Gateway | 01/07/2026 | 03/07/2026 | Viết workshop |
+| 4 | **Dự án:** Biên soạn tài liệu và chụp ảnh các bước deploy Amplify, CloudFront, Route 53, API Gateway, Cognito | 01/07/2026 | 03/07/2026 | Viết workshop |
 
 
 ### Kết quả đạt được:

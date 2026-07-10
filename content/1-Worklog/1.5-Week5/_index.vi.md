@@ -15,9 +15,9 @@ pre: " <b> 1.5. </b> "
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày kết thúc | Ghi chú |
 | --- | --- | --- | --- | --- |
-| 2 | Hoàn thành bài thực hành Lab 10 | 18/05/2026 | 18/05/2026 | [Link bài Lab](https://...) <br><br> ![Ảnh Lab]() |
-| 3 | Thực hành Lab 19 | 19/05/2026 | 19/05/2026 | [Link bài Lab](https://...) <br><br> ![Ảnh Lab]() |
-| 4 | Thực hành Lab 20 & Học lý thuyết Module 03 (AWS Computing Services) | 20/05/2026 | 20/05/2026 | [Link bài Lab](https://...) <br><br> ![Ảnh Lab]() |
+| 2 | Hoàn thành bài thực hành Lab 10 | 18/05/2026 | 18/05/2026 | [https://000010.awsstudygroup.com/](https://000010.awsstudygroup.com/) |
+| 3 | Thực hành Lab 19 | 19/05/2026 | 19/05/2026 | [https://000019.awsstudygroup.com/](https://000019.awsstudygroup.com/) <br><br> ![Ảnh Lab](/images/worklog/Tuan5/tao-CloudFormation-lab19.png) |
+| 4 | Thực hành Lab 20 & Học lý thuyết Module 03 (AWS Computing Services) | 20/05/2026 | 20/05/2026 | [Link bài học](https://www.youtube.com/watch?v=-t5h4N6vfBs&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i&index=72) <br><br> [https://000020.awsstudygroup.com/](https://000020.awsstudygroup.com/) <br><br> ![Ảnh Lab](/images/worklog/Tuan5/chay-lab20-stack.png) |
 | 5 | Lên văn phòng làm việc trực tiếp (ngày 21/5) | 21/05/2026 | 21/05/2026 | Office Day |
 | 6 | **Dự án (Triển khai Tuần 1/6):** Khởi tạo các hàm AWS Lambda xử lý logic nghiệp vụ cơ bản & định cấu hình các tài nguyên REST trên API Gateway | 22/05/2026 | 22/05/2026 | Triển khai dự án (Implementation) |
 

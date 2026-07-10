@@ -6,24 +6,32 @@ chapter: false
 pre: " <b> 5. </b> "
 ---
 
-# Đẩy giao diện lên Hosting và liên kết giao diện với API
+# Xây dựng ứng dụng AI Riddle Generator trên nền tảng AWS Serverless
 
 #### Tổng quan
-Trong bài workshop này, bạn sẽ học cách triển khai một ứng dụng giao diện (frontend) serverless hiện đại trên AWS, cấu hình phân phối nội dung toàn cầu kết hợp bảo mật nâng cao, và tích hợp giao diện này với một hệ thống API REST serverless ở phía backend.
 
-Bạn sẽ làm việc trực tiếp với các dịch vụ AWS quan trọng sau:
-- **AWS Amplify**: Dịch vụ lưu trữ (hosting) giao diện web tĩnh, tích hợp trực tiếp với kho lưu trữ GitHub để tự động triển khai CI/CD.
-- **Amazon CloudFront**: Đóng vai trò là Mạng lưới phân phối nội dung (CDN) giúp bộ đệm (cache) tài nguyên ở các vị trí biên toàn cầu, giảm thiểu độ trễ cho người dùng.
-- **AWS WAF (Web Application Firewall)**: Tường lửa ứng dụng web giúp bảo vệ hệ thống ngay tại các điểm biên trước các lỗ hổng web phổ biến và các cuộc tấn công tiêm nhiễm câu lệnh (prompt injection).
-- **Amazon Route 53**: Dịch vụ quản lý DNS hỗ trợ điều phối tên miền và định tuyến lưu lượng truy cập mượt mà đến CloudFront.
-- **Amazon API Gateway**: Cửa ngõ API giúp quản lý các endpoints REST, kích hoạt CORS và liên kết cuộc gọi API với các hàm backend AWS Lambda.
+Trong loạt bài thực hành (Workshop) này, bạn sẽ được hướng dẫn từng bước (step-by-step) để tự tay xây dựng một ứng dụng AI tạo câu đố cho trẻ em (**AI Riddle Generator**). Hệ thống sẽ ứng dụng mô hình Trí tuệ nhân tạo tạo sinh (Generative AI) trên nền tảng điện toán đám mây AWS với kiến trúc **Serverless** hoàn chỉnh.
 
-#### Nội dung
+Chúng ta sẽ tìm hiểu và cấu hình toàn bộ các dịch vụ từ giao diện người dùng, định danh bảo mật, xử lý backend, tích hợp AI, cơ sở dữ liệu, cho đến khâu giám sát và cảnh báo tự động:
 
-1. [Tổng quan về workshop](5.1-Workshop-overview/)
-2. [Các bước chuẩn bị](5.2-Prerequiste/)
-3. [Đẩy giao diện lên AWS Amplify](5.3-Amplify/)
-4. [Kích hoạt CloudFront, WAF & Route 53](5.4-CloudFront/)
-5. [Khởi tạo API Gateway và liên kết](5.5-APIGateway/)
-6. [Cấu hình Amazon Cognito làm Authorizer](5.6-Cognito/)
-7. [Dọn dẹp tài nguyên](5.7-Cleanup/)
+*   **Hosting & CDN**: Phân phối giao diện web qua AWS Amplify.
+*   **Security (WAF & IAM)**: Lọc request độc hại bằng Web Application Firewall, phân quyền tối thiểu bằng IAM Role.
+*   **Authentication & API**: Quản lý định danh qua Cognito User Pool và định tuyến API qua API Gateway HTTP API.
+*   **Backend & AI Layer**: Xử lý logic qua AWS Lambda và gọi mô hình AI sinh câu đố qua Amazon Bedrock.
+*   **Storage & Database**: Lưu trữ dữ liệu câu đố trên Amazon DynamoDB và xuất báo cáo PDF/Word thông qua Amazon S3 Presigned URL.
+*   **Monitoring**: Giám sát lỗi tập trung bằng CloudWatch và bắn cảnh báo an toàn qua Amazon SNS.
+
+#### Nội dung các chương
+
+1. [Chương 5.1: Tổng quan về workshop & Kiến trúc hệ thống](5.1-workshop-overview/)
+2. [Chương 5.2: Chuẩn bị tài nguyên](5.2-prerequiste/)
+3. [Chương 5.3: Thiết lập Amazon DynamoDB](5.3-amazon-dynamodb/)
+4. [Chương 5.4: Thiết lập Amazon S3](5.4-amazon-s3/)
+5. [Chương 5.5: Triển khai AWS Lambda & Cấu hình IAM](5.5-aws-lambda/)
+6. [Chương 5.6: Thiết lập CloudWatch cho AWS Lambda](5.6-lamda-to-cloudwatch/)
+7. [Chương 5.7: Cấu hình Amazon SNS & Alarm Cảnh báo](5.7-cloudwatch-to-amazonsns/)
+8. [Chương 5.8: Đẩy giao diện lên AWS Amplify](5.8-amplify/)
+9. [Chương 5.9: Kích hoạt CloudFront, WAF & Route 53](5.9-cloudfront/)
+10. [Chương 5.10: Khởi tạo API Gateway và liên kết](5.10-apigateway/)
+11. [Chương 5.11: Cấu hình Amazon Cognito làm Authorizer](5.11-cognito/)
+12. [Chương 5.12: Dọn dẹp tài nguyên trên AWS](5.12-cleanup/)

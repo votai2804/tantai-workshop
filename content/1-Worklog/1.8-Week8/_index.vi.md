@@ -15,11 +15,12 @@ pre: " <b> 1.8. </b> "
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày kết thúc | Ghi chú |
 | --- | --- | --- | --- | --- |
-| 2 | Tham gia sự kiện công nghệ AWS (ngày 13/6) | 08/06/2026 | 08/06/2026 | Event |
-| 3 | Thực hành Lab 25 & Học lý thuyết Module 5 (AWS Storage Services) | 09/06/2026 | 09/06/2026 | [Link bài Lab](https://...) <br><br> ![Ảnh Lab]() |
-| 4 | Thực hành Lab 57 | 10/06/2026 | 10/06/2026 | [Link bài Lab](https://...) <br><br> ![Ảnh Lab]() |
-| 5 | Thực hành Lab 18 | 11/06/2026 | 11/06/2026 | [Link bài Lab](https://...) <br><br> ![Ảnh Lab]() |
+| 2 | **Dự án:** Chốt định hướng phát triển chi tiết cho dự án "AI Riddle Generator" | 08/06/2026 | 08/06/2026 | Idea definition |
+| 3 | Thực hành Lab 25 & Học lý thuyết Module 5 (AWS Storage Services) | 09/06/2026 | 09/06/2026 | [Link bài học](https://www.youtube.com/watch?v=tsobAlSg19g&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i&index=150) <br><br> [https://000025.awsstudygroup.com/](https://000025.awsstudygroup.com/) <br><br> ![Ảnh Lab](/images/worklog/Tuan8/lab25-stack.png) |
+| 4 | Thực hành Lab 57 | 10/06/2026 | 10/06/2026 | [https://000057.awsstudygroup.com/](https://000057.awsstudygroup.com/) |
+| 5 | Thực hành Lab 18 | 11/06/2026 | 11/06/2026 | [https://000018.awsstudygroup.com/](https://000018.awsstudygroup.com/) <br><br> ![Ảnh Lab](/images/worklog/Tuan8/lab18-config.png) |
 | 6 | **Dự án (Triển khai Tuần 4/6):** Tích hợp S3 - Tạo bucket lưu trữ tệp in ấn (PDF/Word), viết logic sinh Presigned URL từ Lambda để tải file an toàn | 12/06/2026 | 12/06/2026 | Triển khai dự án (Implementation) |
+| 7 | Tham gia sự kiện công nghệ AWS (ngày 13/6) | 13/06/2026 | 13/06/2026 | Event |
 
 
 ### Kết quả đạt được:

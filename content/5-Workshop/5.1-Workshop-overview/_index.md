@@ -1,26 +1,27 @@
 ---
-title : "Introduction"
-date : 2024-01-01 
-weight : 1 
-chapter : false
-pre : " <b> 5.1. </b> "
+title: "Workshop Overview"
+date: 2024-01-01
+weight: 1
+chapter: false
+pre: " <b> 5.1. </b> "
 ---
 
-# Introduction
+### 1. Introduction
+The primary goal of this hands-on workshop is to guide you in designing and configuring a complete Serverless architecture integrated with Generative AI on AWS to build the **AI Riddle Generator** application.
 
-#### System Architecture Overview
-The **AI Riddle Generator** application is designed to be fully serverless, highly scalable, cost-optimized, and secure. The system architecture is divided into the following key tiers:
+Through this exercise, you will understand the mechanics and seamless integrations among cloud serverless services, which optimize cost-efficiency (pay-per-request pricing) and elevate cybersecurity defenses to the highest production standard.
 
-1. **Edge & Presentation Tier**: AWS Amplify hosts the static web files (compiled React/Vue app). Traffic is routed via Amazon Route 53 to Amazon CloudFront. AWS WAF (Web Application Firewall) sits in front of CloudFront to protect the application from web attacks and prompt injections.
-2. **Authentication & API Gateway**: AWS Cognito manages user registration and logins. Amazon API Gateway handles routing of HTTPS requests from the frontend to backend logic.
-3. **Compute & AI Pipeline**: AWS Lambda executes the serverless backend logic, interacting with Amazon Bedrock (Anthropic Claude 3.5 Sonnet) to generate riddles.
-4. **Data Persistence**: Amazon DynamoDB stores user accounts and riddle history, while Amazon S3 hosts printable exports (PDF/Word documents).
+### 2. Solution Architecture Diagram
+The diagram below describes the end-to-end data flow starting from user interactions, running through edge protections, routing through API gateways, triggering logic execution, calling AI foundations, and interacting with database tables:
 
-The flow of data starts when the user requests the website. Route 53 resolves the domain name, CloudFront serves the cached frontend, and Cognito authenticates the user. When the user requests a riddle, the frontend sends a signed request via API Gateway to Lambda. Lambda queries Amazon Bedrock for AI generation, stores the history in DynamoDB, and uploads printable versions to S3 before returning the response.
+![Comprehensive System Architecture Diagram](/images/2-Proposal/Cau-Truc-Service-Du-An.jpg)
 
-#### Workshop Overview
-In this workshop, you will focus on implementing the **Edge, Presentation, and API Gateway connectivity** of the system:
-- **Deploying the Frontend to AWS Amplify** to set up a CI/CD pipeline from a Git repository.
-- **Activating Amazon CloudFront & AWS WAF** to globally distribute content and shield the app.
-- **Mapping Custom DNS in Route 53** to route traffic to CloudFront.
-- **Configuring REST API Gateway** to integrate frontend with serverless backend Lambdas and configuring CORS.
+### 3. Data Flow Process
+1. **Resolution & CDN (Edge)**: Users query the domain resolved by **Route 53**. Static UI requests are served securely via HTTPS by the **CloudFront** CDN from **AWS Amplify**.
+2. **Traffic Filtering (WAF)**: An **AWS WAF** firewall intercepts requests at the CDN layer to block DDoS, spam, SQL Injection, and XSS attacks.
+3. **Authentication (Cognito)**: Users register or login, obtaining a secure JWT Token from **Cognito User Pools**.
+4. **API Gateway**: Requests containing JWT tokens are intercepted by **API Gateway**. The gateway validates token signatures before invoking the backend.
+5. **Serverless Compute (Lambda)**: An **AWS Lambda** function receives payload parameters (e.g., keyword topic, target age).
+6. **Artificial Intelligence (Bedrock)**: Lambda constructs a structured prompt payload and invokes the **Amazon Bedrock** foundation models.
+7. **Storage & DB (DynamoDB & S3)**: Generated riddle content is persisted in **DynamoDB**. File exports (PDF/Word) are generated, stored in a private **S3 Bucket**, and served via short-lived S3 Presigned URLs.
+8. **Logging & Monitoring**: Execution logs are forwarded to **CloudWatch**. If errors exceed metrics thresholds, a CloudWatch Alarm notifies administrators via an **SNS** topic to Email or Slack channels.

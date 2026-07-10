@@ -15,7 +15,7 @@ pre: " <b> 1.11. </b> "
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
 | 2 | Write and publish technical post: "How Lore rethinks binary asset storage on AWS" | 29/06/2026 | 30/06/2026 | Blog post |
-| 4 | **Project:** Author step-by-step instructions and take screenshots for deploying Amplify, CloudFront, Route 53, API Gateway | 01/07/2026 | 03/07/2026 | Write workshop |
+| 4 | **Project:** Author step-by-step instructions and take screenshots for deploying Amplify, CloudFront, Route 53, API Gateway, Cognito | 01/07/2026 | 03/07/2026 | Write workshop |
 
 
 ### Week 11 Achievements:

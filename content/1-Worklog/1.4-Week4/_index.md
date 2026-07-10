@@ -16,9 +16,9 @@ pre: " <b> 1.4. </b> "
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
 | 2 | Register for office attendance from May 6-8 (pending approval) | 11/05/2026 | 11/05/2026 | WFH |
-| 3 | Complete practice Lab 03 | 12/05/2026 | 12/05/2026 | [Link bài Lab](https://...) <br><br> ![Ảnh Lab]() |
-| 4 | Practice lab: Completing Lab 10 | 13/05/2026 | 13/05/2026 | [Link bài Lab](https://...) <br><br> ![Ảnh Lab]() |
-| 5 | **Project:** Design application architecture schema (Amplify, API Gateway, Lambda, Bedrock, DynamoDB, S3) | 14/05/2026 | 14/05/2026 | Project Design |
+| 3 | Complete practice Lab 03 | 12/05/2026 | 12/05/2026 | [https://000003.awsstudygroup.com/](https://000003.awsstudygroup.com/) |
+| 4 | Practice lab: Completing Lab 10 | 13/05/2026 | 13/05/2026 | [https://000010.awsstudygroup.com/](https://000010.awsstudygroup.com/) <br><br> ![Ảnh Lab](/images/worklog/Tuan4/lab10.png) |
+| 5 | **Project (Architecture Design):** Design application architecture schema (Amplify, API Gateway, Lambda, Bedrock, DynamoDB, S3) | 14/05/2026 | 14/05/2026 | Project Design |
 
 
 ### Week 4 Achievements:

@@ -15,11 +15,12 @@ pre: " <b> 1.9. </b> "
 
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
-| 2 | Attend AWS technology event (June 20) | 15/06/2026 | 15/06/2026 | Event |
-| 3 | Practice Lab 22, Lab 27, Lab 28 | 16/06/2026 | 16/06/2026 | [Link bài Lab](https://...) <br><br> ![Ảnh Lab]() |
-| 4 | Practice Lab 30, Lab 33 | 17/06/2026 | 17/06/2026 | [Link bài Lab](https://...) <br><br> ![Ảnh Lab]() |
-| 5 | Practice Lab 44, Lab 48 | 18/06/2026 | 18/06/2026 | [Link bài Lab](https://...) <br><br> ![Ảnh Lab]() |
+| 2 | Practice Lab 22, Lab 27, Lab 28 | 15/06/2026 | 15/06/2026 | [https://000027.awsstudygroup.com/](https://000027.awsstudygroup.com/) <br><br> ![Ảnh Lab](/images/worklog/Tuan9/lab27.png) |
+| 3 | Practice Lab 30, Lab 33 | 16/06/2026 | 16/06/2026 | [https://000033.awsstudygroup.com/](https://000033.awsstudygroup.com/) <br><br> ![Ảnh Lab](/images/worklog/Tuan9/lab33.png) |
+| 4 | Practice Lab 44, Lab 48 | 17/06/2026 | 17/06/2026 | [https://000044.awsstudygroup.com/](https://000044.awsstudygroup.com/) <br><br> ![Ảnh Lab](/images/worklog/Tuan9/lab44.png) |
+| 5 | **Project:** Set up project structure and research Amazon Bedrock AI integration details | 18/06/2026 | 18/06/2026 | Project setup & Bedrock research |
 | 6 | **Project (Implementation Wk 5/6):** Frontend Hosting - Connect AWS Amplify to GitHub frontend repo and set API environment variables | 19/06/2026 | 19/06/2026 | Project Implementation |
+| 7 | Attend AWS technology event (June 20) | 20/06/2026 | 20/06/2026 | Event |
 
 
 ### Week 9 Achievements:

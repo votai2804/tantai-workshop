@@ -6,18 +6,13 @@ chapter: false
 pre: " <b> 3. </b> "
 ---
 
+Dưới đây là danh sách các bài blog kỹ thuật đã được biên soạn và đăng tải trên cộng đồng **AWS Study Group**:
 
-Tại đây sẽ là phần liệt kê, giới thiệu các blogs mà các bạn đã đăng trên [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj). Ví dụ:
+### 1. [Blog 1 - Vì sao Epic Games phát triển Lore và cách AWS giúp tối ưu lưu trữ binary assets](3.1-Blog1/)
+Bài viết phân tích giải pháp **Lore** do Epic Games phát triển – một hệ thống version control mã nguồn mở thiết kế dành riêng cho các tệp nhị phân lớn (binary assets) trong game. Nội dung giới thiệu cách Lore chia nhỏ file thành các mảnh dữ liệu (fragments) để tái sử dụng và tránh trùng lặp dữ liệu, đồng thời trình bày kiến trúc triển khai trên AWS tích hợp Amazon S3, DynamoDB, EC2 và ECS giúp các studio game tối ưu hóa chi phí lưu trữ, tăng tốc độ đồng bộ và quản lý phân nhánh (branching) hiệu quả.
 
-###  [Blog 1 - Vì sao Epic Games phát triển Lore và cách AWS giúp tối ưu lưu trữ binary assets](3.1-Blog1/)
-Blog này chia sẻ về giải pháp Lore do Epic Games phát triển – một hệ thống version control mã nguồn mở dành riêng cho các file nhị phân (binary assets) trong quá trình phát triển game. Bạn sẽ tìm hiểu cách Lore chia nhỏ file thành các fragment để tái sử dụng thay vì lưu toàn bộ file, cũng như kiến trúc triển khai trên AWS sử dụng Amazon S3, DynamoDB, EC2, và ECS. Qua đó, bài viết làm rõ lý do mô hình này giúp các studio game tối ưu hóa chi phí lưu trữ, tăng tốc độ đồng bộ và hỗ trợ branching một cách hiệu quả.
-###  [Blog 2 - ...](3.2-Blog2/)
-Blog này giới thiệu cách bắt đầu xây dựng data lake trong lĩnh vực y tế bằng cách áp dụng kiến trúc microservices. Bạn sẽ tìm hiểu vì sao data lake quan trọng trong việc lưu trữ và phân tích dữ liệu y tế đa dạng (hồ sơ bệnh án điện tử, dữ liệu xét nghiệm, thiết bị IoT y tế…), cách microservices giúp hệ thống linh hoạt, dễ mở rộng và dễ bảo trì hơn. Bài viết cũng hướng dẫn các bước khởi tạo môi trường, tổ chức pipeline xử lý dữ liệu, và đảm bảo tuân thủ các tiêu chuẩn bảo mật & quyền riêng tư như HIPAA.
-###  [Blog 3 - Tối ưu hóa chi phí vận hành backend qua kiến trúc serverless với AWS Lambda](3.3-Blog3/)
-Blog này giới thiệu phương pháp tối ưu hóa chi phí vận hành backend thông qua kiến trúc serverless sử dụng AWS Lambda, so sánh ưu nhược điểm với máy chủ EC2 truyền thống và trình bày bản chất kỹ thuật cũng như cơ chế hoạt động của Lambda.
-###  [Blog 4 - ...](3.4-Blog4/)
-Blog này giới thiệu cách bắt đầu xây dựng data lake trong lĩnh vực y tế bằng cách áp dụng kiến trúc microservices. Bạn sẽ tìm hiểu vì sao data lake quan trọng trong việc lưu trữ và phân tích dữ liệu y tế đa dạng (hồ sơ bệnh án điện tử, dữ liệu xét nghiệm, thiết bị IoT y tế…), cách microservices giúp hệ thống linh hoạt, dễ mở rộng và dễ bảo trì hơn. Bài viết cũng hướng dẫn các bước khởi tạo môi trường, tổ chức pipeline xử lý dữ liệu, và đảm bảo tuân thủ các tiêu chuẩn bảo mật & quyền riêng tư như HIPAA.
-###  [Blog 5 - ...](3.5-Blog5/)
-Blog này giới thiệu cách bắt đầu xây dựng data lake trong lĩnh vực y tế bằng cách áp dụng kiến trúc microservices. Bạn sẽ tìm hiểu vì sao data lake quan trọng trong việc lưu trữ và phân tích dữ liệu y tế đa dạng (hồ sơ bệnh án điện tử, dữ liệu xét nghiệm, thiết bị IoT y tế…), cách microservices giúp hệ thống linh hoạt, dễ mở rộng và dễ bảo trì hơn. Bài viết cũng hướng dẫn các bước khởi tạo môi trường, tổ chức pipeline xử lý dữ liệu, và đảm bảo tuân thủ các tiêu chuẩn bảo mật & quyền riêng tư như HIPAA.
-###  [Blog 6 - ...](3.6-Blog6/)
-Blog này giới thiệu cách bắt đầu xây dựng data lake trong lĩnh vực y tế bằng cách áp dụng kiến trúc microservices. Bạn sẽ tìm hiểu vì sao data lake quan trọng trong việc lưu trữ và phân tích dữ liệu y tế đa dạng (hồ sơ bệnh án điện tử, dữ liệu xét nghiệm, thiết bị IoT y tế…), cách microservices giúp hệ thống linh hoạt, dễ mở rộng và dễ bảo trì hơn. Bài viết cũng hướng dẫn các bước khởi tạo môi trường, tổ chức pipeline xử lý dữ liệu, và đảm bảo tuân thủ các tiêu chuẩn bảo mật & quyền riêng tư như HIPAA.
+### 2. [Blog 2 - Kiến trúc bảo mật Serverless: Cách bảo vệ ứng dụng AI Riddle Generator trên AWS](3.2-Blog2/)
+Bài viết chia sẻ mô hình bảo mật nhiều lớp (**Defense in Depth**) thiết kế riêng cho các ứng dụng Serverless kết hợp Generative AI (ứng dụng tạo câu đố AI Riddle Generator). Nội dung chi tiết bao gồm việc chặn đứng các cuộc tấn công DDoS & Prompt Injection tại biên bằng CloudFront và AWS WAF, xác thực an toàn bằng JWT thông qua AWS Cognito và API Gateway Authorizer, áp dụng nguyên tắc phân quyền tối thiểu (Least Privilege) cho IAM roles, và giám sát vận hành qua CloudWatch & SNS.
+
+### 3. [Blog 3 - Cách một tổ chức cắt giảm 39% chi phí AWS trong 12 tuần](3.3-Blog3/)
+Bài viết phân tích case study thực tế về chiến dịch tối ưu hóa chi phí đám mây của một tổ chức SaaS. Bài viết tập trung giải quyết 5 "nút thắt" gây lãng phí ngân sách lớn: nâng cấp tài nguyên thế hệ cũ sang dòng mới (EC2 m6g/gp3), định tuyến traffic S3 qua VPC Endpoints thay vì NAT Gateways tốn kém, hợp nhất Load Balancers (NLB), tự động phân tầng lưu trữ S3 Lifecycle và áp dụng cơ chế tự động co giãn tài nguyên linh hoạt (Auto Scaling/Right-sizing).

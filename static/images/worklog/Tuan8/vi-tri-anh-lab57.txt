@@ -1,0 +1,1 @@
+lấy ảnh trong workshop phần S3 và Cloudfront

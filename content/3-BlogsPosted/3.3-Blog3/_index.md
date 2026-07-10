@@ -1,126 +1,60 @@
 ---
 title: "Blog 3"
-date: 2024-01-01
-weight: 1
+date: 2026-07-09
+weight: 3
 chapter: false
 pre: " <b> 3.3. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+# How an Organization Slashed AWS Costs by 39% in 12 Weeks
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+**Background:** A Platform Engineering team of a SaaS company processed 150 TB of data, with a monthly AWS spend of approximately $35,000 USD. They were preparing for a 10x growth phase. Without optimization, their monthly AWS bill could have escalated to $350,000 USD (nearly $4.2 million USD per year).
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
+Their objective was to execute sequential cost optimization strategies across three phases, utilizing the savings from earlier phases to fund subsequent initiatives.
 
----
+## 5 Primary Cost Bottlenecks (The Cost Challenge)
 
-## Architecture Guidance
+Following an assessment, they identified five main cost bottlenecks:
+1. Using legacy resource classes (EC2 m5 instances and EBS gp2 volumes), missing out on the price-performance benefits of modern instance families.
+2. Routing S3 traffic through expensive NAT Gateways, leading to $2,400 USD/month in unnecessary data transfer fees.
+3. Deploying over 150 Network Load Balancers (NLB), incurring high static maintainance charges.
+4. Keeping 100% of data on S3 Standard, with no storage tiering for infrequently accessed data.
+5. Sizing compute infrastructure (Right-sizing) based on peak utilization instead of employing Auto Scaling, resulting in 30-50% idle compute waste.
 
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
+## Prioritization Methodology: Effort vs. Impact
 
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
-
-**The solution architecture is now as follows:**
-
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+Instead of tackling everything at once, the team used the AWS Cost Optimization Hub to score tasks based on three criteria: effort, cost impact, and risk. Tasks with low risk that did not require application code modifications were prioritized first.
 
 ---
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+## The 3-Phase Optimization Strategy
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+### Phase 1: Infrastructure Optimization (Weeks 1 - 4)
+This phase focused on Storage, Networking, and Load Balancing, delivering immediate "Quick Wins."
+* **Storage (EBS & S3):** Guided by AWS Compute Optimizer recommendations, they migrated over 200 volumes from gp2 to gp3 online with zero downtime. They activated S3 Intelligent-Tiering to automatically move objects > 128KB to cheaper tiers, yielding immediate savings of $1,200 USD/month.
+* **Networking:** Using AWS Cost and Usage Reports (CUR) and VPC Flow Logs, the team found that 60% of NAT Gateway traffic was directed to S3. They configured a VPC Gateway Endpoint for S3, routing traffic internally through the private AWS network and eliminating $2,400 USD/month in NAT Gateway fees.
+* **Load Balancer Consolidation:** The legacy architecture automatically provisioned an NLB for each Kubernetes (EKS) service (over 150 NLBs were active). The team consolidated these into 5 Application Load Balancers (ALBs) grouped by domain (API, Web, Internal, Async, Admin). Using AWS Load Balancer Controller and Route 53 Weighted Routing, they transitioned traffic seamlessly from the old NLBs to the new ALBs (10% -> 50% -> 100%) without dropping a single request. Terminating the 150 redundant NLBs saved an additional $3,400 USD/month.
 
----
+**Phase 1 Outcome:** Saved ~$8,400 USD/month (a 24% reduction in the total bill).
 
-## Technology Choices and Communication Scope
+### Phase 2: Compute Right-Sizing (Weeks 4 - 8)
+AWS Compute Optimizer indicated that many general-purpose instances (m5.4xlarge) were memory-bound (utilizing only 45% CPU while consuming 85% RAM), resulting in redundant CPU capacity.
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+**Action:** They migrated workloads to memory-optimized AMD-powered instances (r6a.2xlarge). This kept the RAM constant at 64 GiB but cut the vCPU count in half, dropping compute costs. By updating Launch Templates and EC2 Auto Scaling groups, they executed safe A/B testing and rollbacks.
+
+### Phase 3: Advanced Optimization & Next-Gen Architecture (Weeks 8 - 12)
+* **Karpenter Implementation:** Replaced the legacy Cluster Autoscaler with Karpenter to automate EKS node provisioning more dynamically.
+* **ARM Architecture Migration (AWS Graviton):** The team built multi-architecture container images supporting both x86 and arm64. They utilized Karpenter's Disruption Controller to drain old x86 nodes (r6i.2xlarge) and replace them with Graviton2 nodes (r6g.2xlarge), yielding an additional 20% compute savings for supported workloads.
 
 ---
 
-## The Pub/Sub Hub
+## Results & Governance
 
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
+1. **Achieved Savings:** After 12 weeks, the organization reduced its AWS monthly spend by 39% (saving $13,700 USD/month). Scaled to their projected 10x growth, this optimization avoids roughly $1.64 million USD/year in projected costs.
+2. **Sustained Governance:** To ensure cost control remained permanent, the team:
+   * Integrated cost reviews into regular Sprint Planning sessions.
+   * Established Service Control Policies (SCPs) via AWS Organizations to:
+     * Deny the creation of legacy gp2 volumes (enforcing gp3 usage).
+     * Restrict resource provisioning to approved instance families and approved AWS Regions.
 
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
-
----
-
-## Core Microservice
-
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
-
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
-
----
-
-## Front Door Microservice
-
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
-
----
-
-## Staging ER7 Microservice
-
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
-
----
-
-## New Features in the Solution
-
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+> **Source:** [How one organization cut AWS costs by 39% in 12 weeks](https://aws.amazon.com/vi/blogs/aws-cloud-financial-management/how-one-organization-cut-aws-costs-by-39-in-12-weeks/)

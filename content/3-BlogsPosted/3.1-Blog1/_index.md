@@ -1,126 +1,82 @@
 ---
 title: "Blog 1"
-date: 2024-01-01
+date: 2026-07-08
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+# Why Epic Games Developed Lore and How AWS Helps Optimize Binary Assets Storage
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+Hi everyone in the AWS Study Group VN community. I want to share this article with you.
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
+If you have ever developed games with thousands of textures, models, animations, or engine binaries, you probably know that traditional version control systems like Git are not well-suited for binary assets. Every time a few hundred MB file is edited, the system stores almost the entire file as a new version, even if only a tiny part changed. Over time, storage size grows exponentially, leading to massive storage costs.
 
----
+To solve this problem, Epic Games developed **Lore** – an open-source version control system designed specifically for binary assets. Meanwhile, AWS introduced a reference architecture to deploy Lore on the cloud.
 
-## Architecture Guidance
-
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
-
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
-
-**The solution architecture is now as follows:**
-
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+In this article, we will explore:
+* How does Lore work differently from traditional version control?
+* What does the deployment architecture on AWS look like?
+* Why does this model help optimize storage costs?
 
 ---
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+## 1. How does Lore work differently?
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+Instead of saving the entire file after every modification, Lore splits each binary file into multiple fragments (chunks) and identifies them using a cryptographic hash. This means:
+* Only fragments containing modified data are stored.
+* Existing fragments are reused.
+* A fragment that appears in multiple files or projects only needs to be stored once.
+
+As a result, the growth rate of storage size is significantly reduced as the project develops.
 
 ---
 
-## Technology Choices and Communication Scope
+## 2. Why does Lore help save costs?
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
-
----
-
-## The Pub/Sub Hub
-
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
-
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
+AWS highlights three prominent benefits:
+* **Reduced storage capacity**: Only modified data is stored instead of full files.
+* **Nearly free branching**: A new branch simply references existing fragments, generating zero new data if assets do not change.
+* **Cross-project data sharing**: Duplicated fragments are only stored once, optimizing resources across the entire studio.
 
 ---
 
-## Core Microservice
+## 3. Lore Architecture on AWS
 
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
+AWS deploys Lore using several familiar services, each playing a dedicated role to ensure performance and scalability:
 
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
+* **Amazon EC2 (Edge Pods)**: Receives connections from clients and caches fragments on NVMe drives to accelerate access times.
+* **Amazon ECS (Write Tier)**: Handles deduplication and writes new data.
+* **Amazon S3**: Safely stores unique fragments for long-term retention.
+* **Amazon DynamoDB**: Manages metadata, locks, and branch information with sub-millisecond latency.
+* **AWS Cloud Map**: Helps Edge Pods automatically discover the Write Tier using internal DNS.
 
----
-
-## Front Door Microservice
-
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
+This architecture enables the system to scale easily while reducing load on the primary data storage layer.
 
 ---
 
-## Staging ER7 Microservice
+## 4. When should you use Lore?
 
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
+The Lore system is particularly suitable for:
+* Game studios with multiple artists and developers collaborating.
+* Projects containing a large volume of binary assets.
+* Enterprises developing multiple game titles concurrently.
+* Teams looking to optimize storage costs and sync data quickly on AWS.
 
 ---
 
-## New Features in the Solution
+## Conclusion
 
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+Lore brings a new approach to binary asset management by breaking down data into reusable fragments instead of saving full files after every modification.
+
+Combined with **Amazon EC2, Amazon ECS, Amazon S3, Amazon DynamoDB**, and **AWS Cloud Map**, this architecture helps:
+1. Significantly reduce storage costs.
+2. Accelerate asset synchronization.
+3. Enable efficient branching.
+4. Share data across multiple projects.
+5. Scale easily as the studio grows.
+
+For game studios working with large binary assets, this is a highly recommended approach to building a modern version control system on AWS.
+
+> **Original Article:** [How Lore rethinks binary asset storage on AWS](https://aws.amazon.com/blogs/gametech/how-lore-rethinks-binary-asset-storage-on-aws/)  
+> **Tags:** #AWS #AWSForGames #EpicGames #Lore #AmazonS3 #AmazonDynamoDB #AmazonEC2 #AmazonECS #CloudArchitecture #GameDevelopment #VersionControl #BinaryAssets #StorageOptimization

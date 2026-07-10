@@ -15,9 +15,9 @@ pre: " <b> 1.1. </b> "
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
 | 2 | Create AWS Free Tier account and explore the console | 20/04/2026 | 20/04/2026 | Account setup |
-| 3 | Practice: Launch an instance using EC2 | 21/04/2026 | 21/04/2026 | [Link bài Lab](https://...) <br><br> ![Ảnh Lab]() |
-| 4 | Practice: Set up a cost budget using AWS Budgets | 22/04/2026 | 22/04/2026 | [Link bài Lab](https://...) <br><br> ![Ảnh Lab]() |
-| 5 | Practice: Create a web app using AWS Lambda | 23/04/2026 | 23/04/2026 | [Link bài Lab](https://...) <br><br> ![Ảnh Lab]() |
+| 3 | Practice: Launch an instance using EC2 | 21/04/2026 | 21/04/2026 | [https://000003.awsstudygroup.com/](https://000003.awsstudygroup.com/) <br><br> ![Ảnh Lab](/images/worklog/Tuan1/EC2-Budgets-Lambda.png) |
+| 4 | Practice: Set up a cost budget using AWS Budgets | 22/04/2026 | 22/04/2026 | [https://000004.awsstudygroup.com/](https://000004.awsstudygroup.com/) |
+| 5 | Practice: Create a web app using AWS Lambda | 23/04/2026 | 23/04/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
 | 6 | Meet and greet AWS Vietnam mentors and members | 24/04/2026 | 24/04/2026 | FCAJ Orientation |
 
 

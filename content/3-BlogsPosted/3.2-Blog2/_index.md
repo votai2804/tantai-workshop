@@ -1,126 +1,73 @@
 ---
 title: "Blog 2"
-date: 2024-01-01
-weight: 1
+date: 2026-07-09
+weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+# Serverless Security Architecture: How to Protect the AI Riddle Generator on AWS
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+Hi everyone in the AWS Study Group VN community.
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
+If you are developing a Serverless application integrated with Generative AI—such as our team's intellectual riddle generation system for kids (AI Riddle Generator)—the challenge is not just making the AI run smoothly or writing accurate prompts. A much larger challenge that developers often overlook in the early stages is: How do you secure this architecture comprehensively?
 
----
+When your application scales to thousands of parents and teachers, the lack of access controls, failure to mitigate Denial of Service (DDoS) attempts, or loose permission policies between services can lead to data leaks, system resource exhaustion, or skyrocketing API costs from calls to the AI model (like Amazon Bedrock).
 
-## Architecture Guidance
-
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
-
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
-
-**The solution architecture is now as follows:**
-
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+To solve this problem fundamentally, implementing a multi-layered security model (**Defense in Depth**) on AWS is mandatory. In this article, we will explore:
+* How the outer security layer (Edge & Presentation) blocks threats.
+* How to manage user identity and protect backend APIs.
+* The Principle of Least Privilege between Serverless services.
+* Automated logging and alerts when security events occur.
 
 ---
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+## 1. Edge Security: Blocking Threats at the Gate
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+As soon as a user (Parent, Teacher) interacts with the application via a domain resolved by Amazon Route 53, the system activates the outer defense layers:
+
+* **AWS Amplify & Amazon CloudFront**: The static React/Vue frontend is distributed via a CDN. CloudFront automatically supports transit data encryption via HTTPS (SSL/TLS enabled by default), preventing Man-in-the-Middle (MitM) attacks or data tampering.
+* **AWS WAF (Web Application Firewall)**: Configured directly at CloudFront or API Gateway, this shield filters traffic, blocks malicious IPs, prevents common attacks like SQL Injection and Cross-Site Scripting (XSS), and sets Rate Limiting rules to combat request spam.
 
 ---
 
-## Technology Choices and Communication Scope
+## 2. User Authentication and Backend API Protection
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+When users log in or send requests to generate riddles, the Authentication & API tier controls access:
+* **Amazon Cognito**: Handles identity management (User Pool). After a successful login, Cognito issues a valid JWT Token (JSON Web Token).
+* **Amazon API Gateway**: Acts as the gatekeeper for the Backend system. API Gateway does not route requests directly to Lambda. Instead, it coordinates with Cognito to validate the token. If the token is fake or expired, the request is instantly blocked, protecting the Serverless compute tier from unauthorized access.
 
 ---
 
-## The Pub/Sub Hub
+## 3. The Principle of Least Privilege with AWS IAM
 
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
+The core of Serverless security lies in isolating the permissions of services in the Serverless Compute and Data Storage tiers:
 
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
-
----
-
-## Core Microservice
-
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
-
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
+* **AWS IAM (Identity and Access Management)**: Instead of granting full administrative rights, each Lambda function is assigned an IAM Role with minimal permissions required to execute its task (Least Privilege).
+* **Secure Integration Mechanisms**:
+  * The `generateRiddle` function only has permissions to send prompts to Amazon Bedrock and write data to the specific `Riddles` table in Amazon DynamoDB. It has no authority to delete records or modify other services.
+  * The document export function only has permissions to write files to a specific S3 bucket (`ai-riddle-storage`) and generate short-lived S3 Presigned URLs (valid for a few minutes) to return to the frontend. Thus, S3 files remain Private and are never exposed to the public internet.
 
 ---
 
-## Front Door Microservice
+## 4. Active Security Observability with CloudWatch & SNS
 
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
+A security system is incomplete without logging and rapid response capabilities:
+
+* **Amazon CloudWatch**: All activity logs, application errors (such as Access Denied exceptions or abnormal Bedrock API call volumes) are pushed to CloudWatch for centralized monitoring.
+* **Amazon SNS (Simple Notification Service)**: When CloudWatch detects metrics exceeding safe thresholds (e.g., a sudden surge in 4XX errors indicative of API scanning), it triggers an Alarm. Through Amazon SNS, an email or Slack alert is sent immediately to the operations team for swift remediation.
 
 ---
 
-## Staging ER7 Microservice
+## Conclusion
 
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
+Securing an AI-powered Serverless application like AI Riddle Generator is not as simple as setting a database password. It requires tight coordination across a chain of encryption, firewalls, centralized authentication, and smart authorization:
+* **AWS WAF & CloudFront**: Filter traffic and prevent DDoS at the edge.
+* **Amazon Cognito & API Gateway**: Ensure only authenticated users can invoke APIs.
+* **AWS IAM**: Minimize the blast radius through the Principle of Least Privilege.
+* **CloudWatch & SNS**: Provide comprehensive visibility to detect and respond to incidents in real-time.
+
+Designing a robust security architecture from day one ensures stable operations, protects costly AI resources, and creates a solid foundation for building secure cloud products.
 
 ---
-
-## New Features in the Solution
-
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+**References:** [Secure API Access with Amazon Cognito, Amazon API Gateway, and AWS Lambda](https://aws.amazon.com/blogs/compute/secure-api-access-with-amazon-cognito-federated-identities-amazon-cognito-user-pools-and-amazon-api-gateway/)

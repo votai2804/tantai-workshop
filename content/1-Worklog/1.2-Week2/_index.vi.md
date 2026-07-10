@@ -15,11 +15,11 @@ pre: " <b> 1.2. </b> "
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày kết thúc | Ghi chú |
 | --- | --- | --- | --- | --- |
-| 2 | Học và hoàn thành Module 01 (Cloud Concepts Overview) | 27/04/2026 | 27/04/2026 | AWS Academy |
-| 3 | Thực hành Lab 1: Introduction to AWS Identity and Access Management (IAM) | 28/04/2026 | 28/04/2026 | [Link bài Lab](https://...) <br><br> ![Ảnh Lab]() |
-| 4 | Thực hành Lab 7: Introduction to Amazon DynamoDB | 29/04/2026 | 29/04/2026 | [Link bài Lab](https://...) <br><br> ![Ảnh Lab]() |
-| 5 | Thực hành Lab 9: Introduction to Amazon API Gateway | 30/04/2026 | 30/04/2026 | [Link bài Lab](https://...) <br><br> ![Ảnh Lab]() |
-| 6 | Học và hoàn thành Module 02 (Cloud Computing Economics & Billing) | 01/05/2026 | 01/05/2026 | AWS Academy |
+| 2 | Học và hoàn thành Module 01 (Cloud Concepts Overview) | 27/04/2026 | 27/04/2026 | [Link bài học](https://www.youtube.com/watch?v=HxYZAK1coOI&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i&index=4) |
+| 3 | Thực hành Lab 1: Introduction to AWS Identity and Access Management (IAM) | 28/04/2026 | 28/04/2026 | [https://000001.awsstudygroup.com/](https://000001.awsstudygroup.com/) <br><br> ![Ảnh Lab](/images/worklog/Tuan2/lab-1.png) |
+| 4 | Thực hành Lab 7: Introduction to Amazon DynamoDB | 29/04/2026 | 29/04/2026 | [https://000007.awsstudygroup.com/](https://000007.awsstudygroup.com/) |
+| 5 | Thực hành Lab 9: Introduction to Amazon API Gateway | 30/04/2026 | 30/04/2026 | [https://000009.awsstudygroup.com/](https://000009.awsstudygroup.com/) <br><br> ![Ảnh Lab](/images/worklog/Tuan2/lab-9.png) |
+| 6 | Học và hoàn thành Module 02 (Cloud Computing Economics & Billing) | 01/05/2026 | 01/05/2026 | [Link bài học](https://www.youtube.com/watch?v=O9Ac_vGHquM&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i&index=25) |
 
 
 ### Kết quả đạt được:
