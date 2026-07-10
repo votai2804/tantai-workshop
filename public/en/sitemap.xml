@@ -54,6 +54,19 @@
                 href="/4-eventparticipated/4.2-event2/"
                 />
   </url><url>
+    <loc>/4-eventparticipated/4.3-event3/</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/4-eventparticipated/4.3-event3/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/4-eventparticipated/4.3-event3/"
+                />
+  </url><url>
     <loc>/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -481,18 +494,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="/5-workshop/5.12-cleanup/"
-                />
-  </url><url>
-    <loc>/4-eventparticipated/4.3-event3/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/4-eventparticipated/4.3-event3/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/4-eventparticipated/4.3-event3/"
                 />
   </url><url>
     <loc>/categories/</loc>

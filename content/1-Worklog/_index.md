@@ -8,31 +8,32 @@ pre: " <b> 1. </b> "
 
 During this internship period, I had the privilege of interning at Amazon Web Services (AWS). AWS is Amazon's cloud computing platform, providing over 200 fully featured services across various domains. I would like to express my sincere gratitude to the company and Mr. Nguyen Gia Hung for their guidance and support throughout my internship.
 
-I started my internship on April 17, 2026, as a Cloud Engineer Intern, completing a 3-month tenure that concluded on July 10, 2026. Throughout this period, I gained hands-on experience with core AWS services, including EC2, S3, IAM, VPC, and Lambda, while also learning how to design architectures following the AWS Well-Architected Framework. I found the knowledge acquired to be incredibly engaging. During this journey, I teamed up with three other interns—Nguyen Tan Tai, Nguyen Duy Phuong, and Ho Xuan Nguyen. Together, our group successfully completed the internship and mastered AWS cloud computing concepts.
+I started my internship on April 17, 2026, as a Cloud Engineer Intern, completing a 3-month tenure that concluded on July 10, 2026. Throughout this period, I gained hands-on experience with core AWS services, including EC2, S3, IAM, VPC, and Lambda, while also learning how to design architectures following the AWS Well-Architected Framework. I found the knowledge acquired to be incredibly engaging. During this journey, I teamed up with three other interns—Dang Quoc Tuan, Nguyen Duy Phuong, and Ho Xuan Nguyen. Together, our group successfully completed the internship and mastered AWS cloud computing concepts.
 
 This internship was designed to expose us to a professional working environment, allowing us to apply our theoretical knowledge to real-world scenarios while honing our practical skills in the field of cloud computing.
 
 
-**Week 1:** [Getting familiar with AWS and basic AWS services](1.1-week1/)
+**Week 1:** [Getting Familiar with AWS, Module 1 & Route 53 Configuration](1.1-week1/)
 
-**Week 2:** [Doing task A...](1.2-week2/)
+**Week 2:** [Module 2, AWS Amplify & CloudFront Deployment](1.2-week2/)
 
-**Week 3:** [Doing task B...](1.3-week3/)
+**Week 3:** [AWS WAF & Cognito Setup](1.3-week3/)
 
-**Week 4:** [Doing task C...](1.4-week4/)
+**Week 4:** [Module 3 & API Gateway Development](1.4-week4/)
 
-**Week 5:** [Doing task D...](1.5-week5/)
+**Week 5:** [AWS Lambda Programming (Part 1)](1.5-week5/)
 
-**Week 6:** [Doing task E...](1.6-week6/)
+**Week 6:** [AWS Lambda Programming (Part 2)](1.6-week6/)
 
-**Week 7:** [Doing task G...](1.7-week7/)
+**Week 7:** [Module 4 & Amazon Bedrock Integration](1.7-week7/)
 
-**Week 8:** [Doing task H...](1.8-week8/)
+**Week 8:** [Module 5 & AI Prompt Logic Refinement](1.8-week8/)
 
-**Week 9:** [Doing task I...](1.9-week9/)
+**Week 9:** [Module 6 & DynamoDB Integration](1.9-week9/)
 
-**Week 10:** [Doing task L...](1.10-week10/)
+**Week 10:** [Amazon S3 & Presigned URL Setup](1.10-week10/)
 
-**Week 11:** [Doing task M...](1.11-week11/)
+**Week 11:** [Monitoring Setup (CloudWatch, SNS) & Technical Blogging](1.11-week11/)
 
-**Week 12:** [Doing task N...](1.12-week12/)
+**Week 12:** [End-to-End System Testing & Handover Documentation](1.12-week12/)
+

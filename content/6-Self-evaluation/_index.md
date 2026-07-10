@@ -16,19 +16,20 @@ To objectively reflect on my internship period, I would like to evaluate myself 
 | --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | ---- | ---- | ------- |
 | 1   | **Professional knowledge & skills** | Understanding of the field, applying knowledge in practice, proficiency with tools, work quality | ✅    | ☐    | ☐       |
 | 2   | **Ability to learn**                | Ability to absorb new knowledge and learn quickly                                                | ☐    | ✅    | ☐       |
-| 3   | **Proactiveness**                   | Taking initiative, seeking out tasks without waiting for instructions                            | ✅    | ☐    | ☐       |
-| 4   | **Sense of responsibility**         | Completing tasks on time and ensuring quality                                                    | ✅    | ☐    | ☐       |
-| 5   | **Discipline**                      | Adhering to schedules, rules, and work processes                                                 | ☐    | ☐    | ✅       |
+| 3   | **Proactiveness**                   | Taking initiative, seeking out tasks without waiting for instructions                            | ☐    | ✅    | ☐       |
+| 4   | **Sense of responsibility**         | Completing tasks on time and ensuring quality                                                    | ☐    | ✅    | ☐       |
+| 5   | **Discipline**                      | Adhering to schedules, rules, and work processes                                                 | ✅    | ☐    | ☐       |
 | 6   | **Progressive mindset**             | Willingness to receive feedback and improve oneself                                              | ☐    | ✅    | ☐       |
-| 7   | **Communication**                   | Presenting ideas and reporting work clearly                                                      | ☐    | ✅    | ☐       |
-| 8   | **Teamwork**                        | Working effectively with colleagues and participating in teams                                   | ✅    | ☐    | ☐       |
-| 9   | **Professional conduct**            | Respecting colleagues, partners, and the work environment                                        | ✅    | ☐    | ☐       |
+| 7   | **Communication**                   | Presenting ideas and reporting work clearly                                                      | ✅    | ☐    | ☐       |
+| 8   | **Teamwork**                        | Working effectively with colleagues and participating in teams                                   | ☐    | ☐    | ✅       |
+| 9   | **Professional conduct**            | Respecting colleagues, partners, and the work environment                                        | ☐    | ✅    | ☐       |
 | 10  | **Problem-solving skills**          | Identifying problems, proposing solutions, and showing creativity                                | ☐    | ✅    | ☐       |
-| 11  | **Contribution to project/team**    | Work effectiveness, innovative ideas, recognition from the team                                  | ✅    | ☐    | ☐       |
+| 11  | **Contribution to project/team**    | Work effectiveness, innovative ideas, recognition from the team                                  | ☐    | ✅    | ☐       |
 | 12  | **Overall**                         | General evaluation of the entire internship period                                               | ✅    | ☐    | ☐       |
 
 ### Needs Improvement
 
-* Strengthen discipline and strictly comply with the rules and regulations of the company or any organization  
-* Improve problem-solving thinking  
-* Enhance communication skills in both daily interactions and professional contexts, including handling situations effectively
+* **Improve discipline (Top priority)**: Ensure strict adherence to working hours, company rules, and standard operational procedures.
+* **Cultivate problem-solving & learning habits**: Build the habit of deep-diving into the root causes of issues. Always proactively propose solutions before asking for help.
+* **Upgrade communication skills**: Present ideas and report work progress more concisely and clearly. Stay open to constructive feedback to accelerate self-improvement.
+
