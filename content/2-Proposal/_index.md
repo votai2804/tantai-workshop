@@ -14,7 +14,7 @@ pre: " <b> 2. </b> "
 
 **Project Name**: AI Riddle Generator Application  
 **Duration**: 12 weeks (April 17 - July 10, 2026)  
-**Intern**: Võ Tấn Tài  
+**Intern**: Vo Tan Tai  
 **University**: HCMC University of Technology (HUTECH)
 
 ### What is This Project?

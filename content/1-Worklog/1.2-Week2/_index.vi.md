@@ -18,7 +18,7 @@ pre: " <b> 1.2. </b> "
 | 2 | Học và hoàn thành Module 01 (Cloud Concepts Overview) | 27/04/2026 | 27/04/2026 | [Link bài học](https://www.youtube.com/watch?v=HxYZAK1coOI&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i&index=4) |
 | 3 | Thực hành Lab  | 28/04/2026 | 28/04/2026 | [https://000001.awsstudygroup.com/](https://000001.awsstudygroup.com/) <br><br> ![Ảnh Lab](/images/worklog/Tuan2/lab-1.png) |
 | 4 | Thực hành Lab 7 | 29/04/2026 | 29/04/2026 | [https://000007.awsstudygroup.com/](https://000007.awsstudygroup.com/) |
-| 5 | Thực hành Lab 9y | 30/04/2026 | 30/04/2026 | [https://000009.awsstudygroup.com/](https://000009.awsstudygroup.com/) <br><br> ![Ảnh Lab](/images/worklog/Tuan2/lab-9.png) |
+| 5 | Thực hành Lab 9 | 30/04/2026 | 30/04/2026 | [https://000009.awsstudygroup.com/](https://000009.awsstudygroup.com/) <br><br> ![Ảnh Lab](/images/worklog/Tuan2/lab-9.png) |
 | 6 | Học và hoàn thành Module 02 (Cloud Computing Economics & Billing) | 01/05/2026 | 01/05/2026 | [Link bài học](https://www.youtube.com/watch?v=O9Ac_vGHquM&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i&index=25) |
 
 

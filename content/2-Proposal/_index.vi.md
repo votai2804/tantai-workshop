@@ -12,9 +12,9 @@ pre: " <b> 2. </b> "
 
 ## 1. Tổng quan Dự án
 
-**Tên Dự án**: Ứng dụng AI Riddle Generator 
+**Tên Dự án**: Ứng dụng AI Riddle Generator  
 **Thời lượng**: 12 tuần (17/04 - 10/07/2026)  
-**Thực tập sinh**: Võ Tấn Tài 
+**Thực tập sinh**: Võ Tấn Tài  
 **Trường**: Đại học Công Nghệ TP.HCM (HUTECH)
 
 ### Dự án là gì?
