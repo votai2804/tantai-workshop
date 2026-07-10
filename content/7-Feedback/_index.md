@@ -30,13 +30,18 @@ The company provides an internship allowance and offers flexible working hours w
 ---
 
 ### Additional Questions
-- What did you find **most satisfying** during your internship?  
-- What do you think the company **should improve** for future interns?  
-- If recommending to a friend, would you **suggest they intern here**? Why or why not?  
-
----
+*   **What did you find most satisfying during your internship?**
+    *   It was the opportunity to design and build a production-ready cloud project (**AI Riddle Generator**) from scratch on AWS under the guidance of Mr. Nguyen Gia Hung. I gained hands-on experience with Lambda, API Gateway, DynamoDB, Cognito, S3, and Amazon Bedrock (Claude 3.5 Sonnet). Implementing edge security (WAF, CloudFront) and storage architectures boosted my technical confidence. Moreover, the welcoming culture and supportive teamwork with fellow interns (Dang Quoc Tuan, Nguyen Duy Phuong, Ho Xuan Nguyen) made this journey memorable.
+*   **What do you think the company should improve for future interns?**
+    *   Since the AWS service ecosystem is vast and standard academic labs can sometimes differ from enterprise deployments, providing internal reference architectures and standardized templates earlier in the first week would help future interns adapt even faster.
+*   **If recommending to a friend, would you suggest they intern here? Why or why not?**
+    *   Definitely yes. This is an ideal environment for anyone aiming to become a Cloud Engineer or DevOps specialist. Instead of doing trivial administrative tasks, interns here own actual cloud projects, learn systematically through AWS Academy, are empowered to solve problems independently, and attend highly valuable technical events to expand their horizons.
 
 ### Suggestions & Expectations
-- Do you have any suggestions to improve the internship experience?  
-- Would you like to continue this program in the future?  
-- Any other comments (free sharing):
+*   **Do you have any suggestions to improve the internship experience?**
+    *   I suggest organizing brief weekly cross-team project review sessions where different intern groups can share their technical designs and learn from each other's architectures.
+*   **Would you like to continue this program in the future?**
+    *   Yes, I would love to continue working with AWS Vietnam as a full-time Cloud Engineer or contributor to future cloud initiatives.
+*   **Any other comments (free sharing):**
+    *   I would like to express my deepest gratitude to Amazon Web Services Vietnam, especially to my mentor Mr. Nguyen Gia Hung and the office staff. Thank you for your patience, support, and for providing a fantastic workplace and AWS resources that enabled me to successfully complete this internship.
+

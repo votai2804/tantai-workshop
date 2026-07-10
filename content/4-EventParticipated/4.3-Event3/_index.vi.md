@@ -68,6 +68,5 @@ pre: " <b> 4.3. </b> "
 - Sự kiện ngày 20/06 mang lại một bầu không khí bùng nổ, khác hẳn với những buổi seminar học thuật thông thường. Việc học qua hình thức Gamification (trò chơi hóa) với sự cạnh tranh cao độ giúp kiến thức in sâu vào tâm trí một cách vô cùng tự nhiên.
 - Ngồi dưới ghế khán giả theo dõi diễn biến các trận đấu, em cảm nhận rõ sự hồi hộp theo từng giây suy nghĩ của các đội, đặc biệt là khoảnh khắc công bố kết quả của câu hỏi có "ngôi sao may mắn". Nhìn cách đội Ngũ đại hiệp lầm lì, bình tĩnh vượt qua khó khăn bằng kiến thức thực chất, hay cách KLKAT chớp thời cơ vô cùng chuẩn xác, em nhận ra rằng một team mạnh không chỉ cần kỹ thuật giỏi mà còn cần cái đầu lạnh và chiến thuật hợp lý. Những lời bình luận, giải thích thêm của anh chị FCAJ sau mỗi vòng đấu thực sự là những bài học "đắt giá" giúp sinh viên chúng em hiểu sâu sắc hơn về thế giới điện toán đám mây.
 
-#### Một số hình ảnh khi tham gia sự kiện
-* 
+
 > Tổng thể, Trong khi đó, cuộc thi AWS Knowledge Competition ngày 20/06 lại là một "thao trường" bùng nổ để thử lửa kiến thức chuyên môn và bản lĩnh tâm lý. Thông qua các màn rượt đuổi điểm số kịch tính và chiến thuật sử dụng "ngôi sao may mắn" của các đội, em không chỉ được củng cố lại toàn bộ hệ sinh thái dịch vụ AWS mà còn học được bài học đắt giá về quản trị rủi ro. Việc biết khi nào nên mạo hiểm, khi nào nên an toàn và giữ được một cái đầu lạnh dưới áp lực cao chính là những kỹ năng mềm mang tính quyết định khi triển khai các dự án thực tế sau này.
