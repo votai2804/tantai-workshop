@@ -16,8 +16,8 @@ pre: " <b> 1.10. </b> "
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
 | 2 | Study Module 6 theory (AWS Architecting Course Conclusion) | 22/06/2026 | 22/06/2026 | [Link bài học](https://www.youtube.com/watch?v=mQWnLwVvTjo&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i&index=180) |
-| 3 | Practice Lab 5 | 23/06/2026 | 23/06/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
-| 4 | Practice Lab 43 | 24/06/2026 | 24/06/2026 | [https://000043.awsstudygroup.com/](https://000043.awsstudygroup.com/) |
+| 3 | Practice Lab 5 | 23/06/2026 | 23/06/2026 | [Link bài Lab](https://000005.awsstudygroup.com/) |
+| 4 | Practice Lab 43 | 24/06/2026 | 24/06/2026 | [Link bài Lab](https://000043.awsstudygroup.com/) |
 | 5 | **Project (Implementation Wk 6/6):** Routing & Security - Configure CloudFront distribution, integrate WAF for edge protection, and map domain with Route 53 | 25/06/2026 | 25/06/2026 | Project Implementation |
 | 6 | **Project (Implementation Wk 6/6):** Cognito Auth - Initialize Cognito User Pool for SPA and configure API Gateway Authorizer to secure API methods | 26/06/2026 | 26/06/2026 | Project Implementation |
 
