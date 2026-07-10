@@ -14,7 +14,7 @@ Through this exercise, you will understand the mechanics and seamless integratio
 ### 2. Solution Architecture Diagram
 The diagram below describes the end-to-end data flow starting from user interactions, running through edge protections, routing through API gateways, triggering logic execution, calling AI foundations, and interacting with database tables:
 
-![Comprehensive System Architecture Diagram](/images/2-Proposal/Cau-Truc-Service-Du-An.jpg)
+![Comprehensive System Architecture Diagram](/images/2-Proposal/AI-Riddle-Generator.png)
 
 ### 3. Data Flow Process
 1. **Resolution & CDN (Edge)**: Users query the domain resolved by **Route 53**. Static UI requests are served securely via HTTPS by the **CloudFront** CDN from **AWS Amplify**.
