@@ -16,8 +16,8 @@ pre: " <b> 1.4. </b> "
 | Thứ | Công việc | Ngày bắt đầu | Ngày kết thúc | Ghi chú |
 | --- | --- | --- | --- | --- |
 | 2 | Đăng ký lên văn phòng từ ngày 6-8/5 (chờ phê duyệt) | 11/05/2026 | 11/05/2026 | WFH |
-| 3 | Hoàn thành bài thực hành Lab 03 | 12/05/2026 | 12/05/2026 | [Link bài Lab](https://000003.awsstudygroup.com/) |
-| 4 | Thực hành bổ trợ: Đang hoàn thiện Lab 10 | 13/05/2026 | 13/05/2026 | [Link bài Lab](https://000010.awsstudygroup.com/) <br><br> ![Ảnh Lab](/images/worklog/Tuan4/lab10.png) |
+| 3 | Hoàn thành bài thực hành Lab 03 | 12/05/2026 | 12/05/2026 | [https://000003.awsstudygroup.com/](https://000003.awsstudygroup.com/) |
+| 4 | Thực hành bổ trợ: Đang hoàn thiện Lab 10 | 13/05/2026 | 13/05/2026 | [https://000010.awsstudygroup.com/](https://000010.awsstudygroup.com/) <br><br> ![Ảnh Lab](/images/worklog/Tuan4/lab10.png) |
 | 5 | **Dự án (Thiết kế cấu trúc):** Thiết kế sơ đồ kiến trúc ứng dụng (Amplify, API Gateway, Lambda, Bedrock, DynamoDB, S3) | 14/05/2026 | 14/05/2026 | Thiết kế cấu trúc (Project Architecture) |
 
 

@@ -15,9 +15,9 @@ pre: " <b> 1.1. </b> "
 | Thứ | Công việc | Ngày bắt đầu | Ngày kết thúc | Ghi chú |
 | --- | --- | --- | --- | --- |
 | 2 | Tạo tài khoản AWS Free Tier và làm quen AWS Console | 20/04/2026 | 20/04/2026 | Setup tài khoản |
-| 3 | Thực hành: Launch an instance using EC2 | 21/04/2026 | 21/04/2026 | [Link bài Lab](https://000003.awsstudygroup.com/) <br><br> ![Ảnh Lab](/images/worklog/Tuan1/EC2-Budgets-Lambda.png) |
-| 4 | Thực hành: Set up a cost budget using AWS Budgets | 22/04/2026 | 22/04/2026 | [Link bài Lab](https://000004.awsstudygroup.com/) |
-| 5 | Thực hành: Create a web app using AWS Lambda | 23/04/2026 | 23/04/2026 | [Link bài Lab](https://000005.awsstudygroup.com/) |
+| 3 | Thực hành: Launch an instance using EC2 | 21/04/2026 | 21/04/2026 | [https://000003.awsstudygroup.com/](https://000003.awsstudygroup.com/) <br><br> ![Ảnh Lab](/images/worklog/Tuan1/EC2-Budgets-Lambda.png) |
+| 4 | Thực hành: Set up a cost budget using AWS Budgets | 22/04/2026 | 22/04/2026 | [https://000004.awsstudygroup.com/](https://000004.awsstudygroup.com/) |
+| 5 | Thực hành: Create a web app using AWS Lambda | 23/04/2026 | 23/04/2026 | [https://000005.awsstudygroup.com/](https://000005.awsstudygroup.com/) |
 | 6 | Làm quen các anh chị Mentor và các thành viên tại AWS Vietnam | 24/04/2026 | 24/04/2026 | FCAJ Orientation |
 
 
