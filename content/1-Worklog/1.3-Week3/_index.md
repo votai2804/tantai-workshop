@@ -7,21 +7,21 @@ pre: " <b> 1.3. </b> "
 ---
 
 ### Week 3 Objectives:
-* Attend offline AWS events.
-* Study internal documentation framework Bmad.
-* **Project:** Ideate the internship project topic.
+* Tham gia sự kiện offline của AWS.
+* Tìm hiểu hệ thống tài liệu nội bộ Bmad.
+* **Project:** Lên ý tưởng đề tài dự án thực tập.
 
 ### Tasks to be carried out this week (04/05 - 10/05/2026):
 
-| Day | Task | Start Date | Completion Date | Reference Material |
+| Thứ | Task | Ngày bắt đầu | Ngày kết thúc | Reference Material |
 | --- | --- | --- | --- | --- |
-| 2 | Attend Offline AWS knowledge sharing event | 04/05/2026 | 04/05/2026 | Event |
-| 3 | Research internal documentation Bmad & standard cloud project structures | 05/05/2026 | 05/05/2026 | Bmad Docs |
-| 4 | Continue Module 02 & finish supporting exercises | 06/05/2026 | 06/05/2026 | [Link bài học](https://www.youtube.com/watch?v=O9Ac_vGHquM&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i&index=25) |
-| 5 | Practice lab: Completing Lab 03 | 07/05/2026 | 07/05/2026 | [https://000003.awsstudygroup.com/](https://000003.awsstudygroup.com/) <br><br> ![Ảnh Lab](/images/worklog/Tuan3/tao-EC2-lab03.png) |
-| 6 | **Project (Ideation):** Conduct research and finalize project idea: select **AI Riddle Generator** | 08/05/2026 | 08/05/2026 | Project Ideation |
+| 7 | Participate in Offline event sharing AWS technology knowledge | 09/05/2026 | 09/05/2026 | Event |
+| 3 | Learn about internal Bmad documentation & cloud project structure | 05/05/2026 | 05/05/2026 | During the Event |
+| 4 | Continue studying Module 02 & complete supplementary practice labs | 06/05/2026 | 06/05/2026 | [Link bài học](https://www.youtube.com/watch?v=O9Ac_vGHquM&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i&index=25) |
+| 5 | Supplementary practice: Completing Lab 03 | 07/05/2026 | 07/05/2026 | [https://000003.awsstudygroup.com/](https://000003.awsstudygroup.com/) <br><br> ![Ảnh Lab](/images/worklog/Tuan3/tao-EC2-lab03.png) |
+| 6 | **Project (Idea Definition):** Conduct survey and finalize idea for **AI Riddle Generator** application | 08/05/2026 | 08/05/2026 | Project Idea Definition |
 
 
-### Week 3 Achievements:
-* Gained deeper insight into Bmad documentation structure.
-* Finalized project topic choice: AI Riddle Generator.
+### Week Achievements:
+* Hiểu sâu hơn về cấu trúc tài liệu Bmad.
+* Chốt ý tưởng đề tài dự án: AI Riddle Generator.

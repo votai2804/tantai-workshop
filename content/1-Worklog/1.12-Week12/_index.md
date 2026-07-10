@@ -7,20 +7,18 @@ pre: " <b> 1.12. </b> "
 ---
 
 ### Week 12 Objectives:
-* Perform end-to-end testing and finalize the internship report.
-* Obtain evaluations and signature from mentors and finish internship.
+* Hoàn tất kiểm thử sản phẩm và báo cáo tổng kết.
+* Lấy xác nhận từ cán bộ hướng dẫn và kết thúc thực tập.
 
 ### Tasks to be carried out this week (06/07 - 10/07/2026):
 
-| Day | Task | Start Date | Completion Date | Reference Material |
+| Thứ | Task | Ngày bắt đầu | Ngày kết thúc | Reference Material |
 | --- | --- | --- | --- | --- |
-| 1 | **Project:** Run complete End-to-End Testing and optimize backend resource code | 06/07/2026 | 06/07/2026 | Testing & Optimization |
-| 2 | Present final AI Riddle Generator project report to Mentor Nguyen Gia Hung | 07/07/2026 | 07/07/2026 | Project Presentation |
-| 3 | Fill forms, obtain reviews & signatures from mentor and HUTECH supervisor | 08/07/2026 | 08/07/2026 | Signatures |
-| 4 | Handover codebase and documentation results to AWS Vietnam team | 09/07/2026 | 09/07/2026 | Handover |
-| 5 | Officially finish the graduation internship program | 10/07/2026 | 10/07/2026 | Finish |
+| 1 | **Project:** Run comprehensive End-to-End testing & optimize source code | 06/07/2026 | 06/07/2026 | Testing & Optimization |
+| 2 | Project Presentation: AI Riddle Generator project | 07/07/2026 | 07/07/2026 | Project Presentation |
+| 4 | Upload Workshop to company website | 10/07/2026 | 10/07/2026 | Handover |
 
 
-### Week 12 Achievements:
-* AI Riddle Generator project completed 100% of all requirements.
-* Obtained excellent reviews and official signatures from AWS Vietnam and HUTECH university.
+### Week Achievements:
+* Dự án AI Riddle Generator đạt 100% tiêu chí đề ra.
+* Nhận đầy đủ nhận xét tích cực và chữ ký phê duyệt từ AWS Vietnam và trường HUTECH.

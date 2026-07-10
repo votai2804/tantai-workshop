@@ -7,20 +7,19 @@ pre: " <b> 1.4. </b> "
 ---
 
 ### Week 4 Objectives:
-* Register for office working schedule.
-* Complete remaining practice labs.
-* **Project:** Design system architecture and file structure.
+* Đăng ký lịch làm việc trực tiếp tại văn phòng.
+* Completed các bài Lab thực hành dở dang.
+* **Project:** Thiết kế kiến trúc & cấu trúc dự án.
 
 ### Tasks to be carried out this week (11/05 - 17/05/2026):
 
-| Day | Task | Start Date | Completion Date | Reference Material |
+| Thứ | Task | Ngày bắt đầu | Ngày kết thúc | Reference Material |
 | --- | --- | --- | --- | --- |
-| 2 | Register for office attendance from May 6-8 (pending approval) | 11/05/2026 | 11/05/2026 | WFH |
 | 3 | Complete practice Lab 03 | 12/05/2026 | 12/05/2026 | [https://000003.awsstudygroup.com/](https://000003.awsstudygroup.com/) |
-| 4 | Practice lab: Completing Lab 10 | 13/05/2026 | 13/05/2026 | [https://000010.awsstudygroup.com/](https://000010.awsstudygroup.com/) <br><br> ![Ảnh Lab](/images/worklog/Tuan4/lab10.png) |
-| 5 | **Project (Architecture Design):** Design application architecture schema (Amplify, API Gateway, Lambda, Bedrock, DynamoDB, S3) | 14/05/2026 | 14/05/2026 | Project Design |
+| 4 | Supplementary practice: Completing Lab 10 | 13/05/2026 | 13/05/2026 | [https://000010.awsstudygroup.com/](https://000010.awsstudygroup.com/) <br><br> ![Ảnh Lab](/images/worklog/Tuan4/lab10.png) |
+| 5 | **Project (Architectural Design):** Design application architecture diagram (Amplify, API Gateway, Lambda, Bedrock, DynamoDB, S3) | 14/05/2026 | 14/05/2026 | Architectural Design |
 
 
-### Week 4 Achievements:
+### Week Achievements:
 * Completed Lab 03.
-* Finished drafting system architecture schema for AI Riddle Generator.
+* Phác thảo xong sơ đồ kiến trúc hệ thống của dự án AI Riddle Generator.
