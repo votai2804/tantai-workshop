@@ -7,7 +7,7 @@ pre: " <b> 1.8. </b> "
 ---
 
 ### Mục tiêu tuần 8:
-* Tham gia sự kiện công nghệ AWS.
+* Tham gia Event AWS.
 * Hoàn thành Lab 25, Lab 57, Lab 18.
 * **Dự án:** Triển khai lưu trữ file in ấn (S3).
 
@@ -20,7 +20,7 @@ pre: " <b> 1.8. </b> "
 | 4 | Thực hành Lab 57 | 10/06/2026 | 10/06/2026 | [https://000057.awsstudygroup.com/](https://000057.awsstudygroup.com/) |
 | 5 | Thực hành Lab 18 | 11/06/2026 | 11/06/2026 | [https://000018.awsstudygroup.com/](https://000018.awsstudygroup.com/) <br><br> ![Ảnh Lab](/images/worklog/Tuan8/lab18-config.png) |
 | 6 | **Dự án (Triển khai Tuần 4/6):** Tích hợp S3 - Tạo bucket lưu trữ tệp in ấn (PDF/Word), viết logic sinh Presigned URL từ Lambda để tải file an toàn | 12/06/2026 | 12/06/2026 | Triển khai dự án (Implementation) |
-| 7 | Tham gia sự kiện công nghệ AWS (ngày 13/6) | 13/06/2026 | 13/06/2026 | Event |
+| 7 | Tham gia Event  (ngày 13/6) | 13/06/2026 | 13/06/2026 | Event |
 
 
 ### Kết quả đạt được:

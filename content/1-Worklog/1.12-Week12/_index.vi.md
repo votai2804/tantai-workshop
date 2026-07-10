@@ -16,7 +16,7 @@ pre: " <b> 1.12. </b> "
 | --- | --- | --- | --- | --- |
 | 1 | **Dự án:** Chạy kiểm thử hệ thống toàn diện (End-to-End Testing) & tối ưu hóa mã nguồn | 06/07/2026 | 06/07/2026 | Testing & Optimization |
 | 2 | Báo cáo tổng kết dự án AI Riddle Generator | 07/07/2026 | 07/07/2026 | Project Presentation |
-| 4 | Gửi bản Workshop lên web công ty | 09/07/2026 | 09/07/2026 | Handover |
+| 4 | Gửi bản Workshop lên web công ty | 10/07/2026 | 10/07/2026 | Handover |
 
 
 ### Kết quả đạt được:

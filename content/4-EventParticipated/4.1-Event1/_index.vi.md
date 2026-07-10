@@ -91,5 +91,11 @@ pre: " <b> 4.1. </b> "
 
 
 #### Một số hình ảnh khi tham gia sự kiện
-* 
+
+![Ảnh sự kiện 1](/images/envent/event9-5/anh1.jpg)
+![Ảnh sự kiện 2](/images/envent/event9-5/anh2.jpg)
+![Ảnh sự kiện 3](/images/envent/event9-5/anh3.jpg)
+![Ảnh sự kiện 4](/images/envent/event9-5/anh4.jpg)
+
 > Tổng thể, sự kiện không chỉ cung cấp các kỹ năng "sinh tồn" cực kỳ cần thiết trong kỷ nguyên AI mà còn định hướng một lộ trình học tập, làm việc có cấu trúc, chuyên nghiệp và vững chắc hơn cho con đường sự nghiệp phía trước.
+
