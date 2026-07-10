@@ -110,5 +110,10 @@ pre: " <b> 4.2. </b> "
 - Đồng thời, phần chia sẻ về Data Analytics và DevOps đã phá vỡ lăng kính màu hồng của em. Em nhận ra rằng dù làm ở vị trí nào, từ phân tích dữ liệu đến vận hành hệ thống, kỹ năng quyết định sự thành bại lại là **Giao tiếp (Communication)** và **Tư duy hệ thống (System Thinking)**. Khái niệm làm việc với tinh thần "Phụng sự" và triết lý "Đúng việc" thực sự là kim chỉ nam quý giá, giúp em định hình lại thái độ làm việc và xây dựng tinh thần trách nhiệm cao độ đối với bất kỳ dòng code hay bản thiết kế nào mình tạo ra.
 
 #### Một số hình ảnh khi tham gia sự kiện
-* 
+
+![Ảnh sự kiện 1](/images/envent/event13-6/anh1.jpg)
+![Ảnh sự kiện 2](/images/envent/event13-6/anh2.jpg)
+![Ảnh sự kiện 3](/images/envent/event13-6/anh3.jpg)
+
 > Tổng thể, Sự kiện ngày 13/06 mang đến một góc nhìn thực chiến và sâu sắc về định hướng nghề nghiệp, từ việc thiết kế kiến trúc hệ thống mở rộng (mô hình Cache-aside, bảo mật tầng biên) đến những sự thật khốc liệt của nghề Data Analytics và DevOps. Bài học cốt lõi em rút ra là sự cần thiết phải dịch chuyển từ việc chỉ biết sử dụng công cụ (Learner) sang tư duy nhìn nhận bài toán tổng thể (System Thinker). Đồng thời, triết lý "Đúng việc" và kỹ năng giao tiếp liên phòng ban chính là kim chỉ nam quan trọng giúp một kỹ sư công nghệ tồn tại, đóng góp và thăng tiến bền vững trong môi trường đa quốc gia.
+
