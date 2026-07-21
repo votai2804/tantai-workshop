@@ -57,4 +57,5 @@ AWS Compute Optimizer indicated that many general-purpose instances (m5.4xlarge)
      * Deny the creation of legacy gp2 volumes (enforcing gp3 usage).
      * Restrict resource provisioning to approved instance families and approved AWS Regions.
 
-> **Source:** [How one organization cut AWS costs by 39% in 12 weeks](https://aws.amazon.com/vi/blogs/aws-cloud-financial-management/how-one-organization-cut-aws-costs-by-39-in-12-weeks/)
+> **Source:** [How one organization cut AWS costs by 39% in 12 weeks](https://aws.amazon.com/vi/blogs/aws-cloud-financial-management/how-one-organization-cut-aws-costs-by-39-in-12-weeks/)  
+> **Facebook Post Link:** [AWS Study Group](https://www.facebook.com/groups/660548818043427/user/100015108252190)

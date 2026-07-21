@@ -79,4 +79,5 @@ Kết hợp với **Amazon EC2, Amazon ECS, Amazon S3, Amazon DynamoDB** và **A
 Đối với các studio game làm việc với lượng lớn binary assets, đây là một hướng tiếp cận vô cùng đáng cân nhắc để xây dựng hệ thống version control hiện đại trên AWS.
 
 > **Bài viết gốc:** [How Lore rethinks binary asset storage on AWS](https://aws.amazon.com/blogs/gametech/how-lore-rethinks-binary-asset-storage-on-aws/)  
+> **Link bài đăng Facebook:** [AWS Study Group](https://web.facebook.com/groups/660548818043427/user/100029043690648)  
 > **Tags:** #AWS #AWSForGames #EpicGames #Lore #AmazonS3 #AmazonDynamoDB #AmazonEC2 #AmazonECS #CloudArchitecture #GameDevelopment #VersionControl #BinaryAssets #StorageOptimization

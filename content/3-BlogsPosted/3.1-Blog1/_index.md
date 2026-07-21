@@ -79,4 +79,5 @@ Combined with **Amazon EC2, Amazon ECS, Amazon S3, Amazon DynamoDB**, and **AWS 
 For game studios working with large binary assets, this is a highly recommended approach to building a modern version control system on AWS.
 
 > **Original Article:** [How Lore rethinks binary asset storage on AWS](https://aws.amazon.com/blogs/gametech/how-lore-rethinks-binary-asset-storage-on-aws/)  
+> **Facebook Post Link:** [AWS Study Group](https://web.facebook.com/groups/660548818043427/user/100029043690648)  
 > **Tags:** #AWS #AWSForGames #EpicGames #Lore #AmazonS3 #AmazonDynamoDB #AmazonEC2 #AmazonECS #CloudArchitecture #GameDevelopment #VersionControl #BinaryAssets #StorageOptimization

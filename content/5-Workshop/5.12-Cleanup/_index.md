@@ -18,27 +18,34 @@ Delete your resources in the following sequence:
 1. Open the **CloudWatch console** -> **Alarms** -> **All alarms** -> Select the `generateRiddle-HighErrorRate` alarm -> Click **Action** -> Select **Delete**.
 2. Open the **SNS console** -> **Topics** -> Select `RiddleAppAlerts` -> Click **Delete**. Ensure associated email subscriptions are also deleted.
 
+![Decommission CloudWatch Alarm](/images/5-Workshop/5.12-Cleanup/Dashboard.png)
+
 ---
 
 ### 2. Remove AWS Amplify App & DNS Mappings
 1. Open the **AWS Amplify console** -> Select your frontend application -> Click **Actions** -> Select **Delete app**.
+   ![Decommission AWS Amplify App](/images/5-Workshop/5.12-Cleanup/AWS-Amplify-Appsetting-delete.png)
 2. Open the **Route 53 console** (if mapping a custom domain) -> Delete the Alias A Records or CNAME records mapped to the Amplify CDN endpoints.
+   ![Decommission Route 53 DNS Records](/images/5-Workshop/5.12-Cleanup/Route53-DeleteHostedZones.png)
 
 ---
 
 ### 3. Delete AWS WAF Web ACL
 1. Open the **AWS WAF console** -> **Web ACLs** -> Select your ACL -> Go to **Associated AWS resources** -> Remove the bindings pointing to your CloudFront distribution.
 2. Return to the Web ACLs list view, select the ACL, and click **Delete**.
+   ![Decommission WAF Web ACL](/images/5-Workshop/5.12-Cleanup/CloudFront-Distributions.png)
 
 ---
 
 ### 4. Delete Amazon API Gateway
 1. Navigate to the **API Gateway console** -> Select `RiddleHTTPAPI` -> Click **Actions** -> Select **Delete**.
+   ![Decommission API Gateway](/images/5-Workshop/5.12-Cleanup/APIGateway-APIs-Resources.png)
 
 ---
 
 ### 5. Delete Amazon Cognito User Pool
 1. Open the **Cognito console** -> Select `RiddleAppUserPool` -> Click **Delete**.
+   ![Decommission Cognito User Pool](/images/5-Workshop/5.12-Cleanup/Cognito-Userpool.png)
 
 ---
 
@@ -47,6 +54,7 @@ Delete your resources in the following sequence:
 2. Open the **IAM console**:
     *   **Roles**: Find `LambdaRiddleRole` and click **Delete**.
     *   **Policies**: Find `LambdaRiddlePolicy` and click **Delete**.
+   ![Decommission Lambda and IAM Role](/images/5-Workshop/5.12-Cleanup/Lambda-Delete.png)
 
 ---
 

@@ -57,4 +57,5 @@ AWS Compute Optimizer chỉ ra rằng nhiều instances chạy dòng General-pur
      * Cấm (Deny) tạo mới các volume chuẩn cũ gp2 (bắt buộc dùng gp3).
      * Chỉ cho phép cấp phát tài nguyên thuộc những Instance Families đã được phê duyệt và tại những AWS Region nhất định.
 
-> **Nguồn tham khảo:** [How one organization cut AWS costs by 39% in 12 weeks](https://aws.amazon.com/vi/blogs/aws-cloud-financial-management/how-one-organization-cut-aws-costs-by-39-in-12-weeks/?content_source=fb&fb_content_id=Q9-wBQFW206aJU5vuo2CKD0obi06M-KIiAdM-zCAU_SURad5dGSS7XLwpBlxbO1QSg&channel_type=fb)
+> **Nguồn tham khảo:** [How one organization cut AWS costs by 39% in 12 weeks](https://aws.amazon.com/vi/blogs/aws-cloud-financial-management/how-one-organization-cut-aws-costs-by-39-in-12-weeks/?content_source=fb&fb_content_id=Q9-wBQFW206aJU5vuo2CKD0obi06M-KIiAdM-zCAU_SURad5dGSS7XLwpBlxbO1QSg&channel_type=fb)  
+> **Link bài đăng Facebook:** [AWS Study Group](https://www.facebook.com/groups/660548818043427/user/100015108252190)

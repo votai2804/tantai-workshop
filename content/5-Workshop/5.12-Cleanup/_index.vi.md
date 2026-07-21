@@ -18,27 +18,34 @@ Thực hiện xóa các tài nguyên theo thứ tự sau:
 1. Truy cập **CloudWatch Console** -> **Alarms** -> **All alarms** -> Chọn alarm `generateRiddle-HighErrorRate` -> Nhấp **Action** -> Chọn **Delete**.
 2. Truy cập **SNS Console** -> **Topics** -> Chọn topic `RiddleAppAlerts` -> Nhấp chọn **Delete**. Đồng thời xóa các Subscription liên kết.
 
+![Xóa CloudWatch Alarm](/images/5-Workshop/5.12-Cleanup/Dashboard.png)
+
 ---
 
 ### 2. Xóa AWS Amplify App và Route 53 DNS records
 1. Truy cập **AWS Amplify Console** -> Chọn ứng dụng Frontend -> **Actions** -> Chọn **Delete app**.
+   ![Xóa AWS Amplify App](/images/5-Workshop/5.12-Cleanup/AWS-Amplify-Appsetting-delete.png)
 2. Truy cập **Route 53 Console** (nếu cấu hình tên miền riêng) -> Xóa các bản ghi CNAME hoặc A Record trỏ về Amplify.
+   ![Xóa Route 53 DNS Records](/images/5-Workshop/5.12-Cleanup/Route53-DeleteHostedZones.png)
 
 ---
 
 ### 3. Xóa AWS WAF Web ACL
 1. Truy cập **AWS WAF Console** -> **Web ACLs** -> Chọn ACL đã tạo -> Chọn **Associated AWS resources** -> Gỡ bỏ liên kết với CloudFront/Amplify.
 2. Quay lại danh sách ACLs, chọn ACL đó và nhấn **Delete**.
+   ![Xóa WAF Web ACL](/images/5-Workshop/5.12-Cleanup/CloudFront-Distributions.png)
 
 ---
 
 ### 4. Xóa Amazon API Gateway
 1. Truy cập **API Gateway Console** -> Chọn API `RiddleHTTPAPI` -> Nhấp **Actions** -> Chọn **Delete**.
+   ![Xóa API Gateway](/images/5-Workshop/5.12-Cleanup/APIGateway-APIs-Resources.png)
 
 ---
 
 ### 5. Xóa Amazon Cognito User Pool
 1. Truy cập **Cognito Console** -> Chọn User Pool `RiddleAppUserPool` -> Nhấp chọn **Delete**.
+   ![Xóa Cognito User Pool](/images/5-Workshop/5.12-Cleanup/Cognito-Userpool.png)
 
 ---
 
@@ -47,6 +54,7 @@ Thực hiện xóa các tài nguyên theo thứ tự sau:
 2. Truy cập **IAM Console**:
     *   **Roles**: Tìm `LambdaRiddleRole` và nhấn **Delete**.
     *   **Policies**: Tìm `LambdaRiddlePolicy` và nhấn **Delete**.
+   ![Xóa Lambda và IAM Role](/images/5-Workshop/5.12-Cleanup/Lambda-Delete.png)
 
 ---
 
