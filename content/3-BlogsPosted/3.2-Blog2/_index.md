@@ -9,28 +9,61 @@ pre: " <b> 3.2. </b> "
 # Serverless Security Architecture: How to Protect the AI Riddle Generator on AWS
 
 ### 1. Main Content
-When deploying a Serverless application combined with Generative AI for a large user base, implementing a multi-layered security model (**Defense in Depth**) is a mandatory requirement. Without robust security controls, the infrastructure risks exposing itself to Distributed Denial of Service (DDoS) attacks, API abuse causing inflated LLM cost charges (such as Bedrock calls), or private storage data breaches.
-
-This post introduces the end-to-end security architecture configured on AWS for the **AI Riddle Generator** application, spanning edge networking (CDN), API authentication gateways, backend access isolation, and active monitoring.
+When deploying Serverless and Generative AI applications to a large user base, designing a multi-layered security model (**Defense in Depth**) is critical. This post shares comprehensive security solutions on AWS for the **AI Riddle Generator** application, addressing challenges such as: protecting the edge layer against DDoS and rate-limiting spam requests, controlling access and validating user identities via JWT Tokens, enforcing least privilege permissions for cloud resources, and building automated real-time security monitoring and alerts.
 
 ---
 
 ### 2. Key Takeaways
-* **Edge & Presentation Protection:** Utilizing CloudFront CDN for static asset distribution with HTTPS encryption to prevent intercept attacks, integrated with AWS WAF to block SQL Injection, XSS, and enforce API Rate Limiting.
-* **Authentication Gateways:** Amazon Cognito handles user directory management and issues JWT authentication tokens. API Gateway acts as the gateway authorizer, validating Cognito JWT signatures before forwarding requests to the compute layer.
-* **IAM Least Privilege Principle:** Utilizing AWS IAM to restrict Lambda execution permissions, ensuring functions can only invoke the target Bedrock model and write to the designated DynamoDB table.
-* **Active Monitoring & Notifications:** Centralizing application logs and metrics via Amazon CloudWatch. If unexpected access levels or execution errors occur, CloudWatch Alarms trigger instant alerts via Amazon SNS to administrators.
+* **Amazon Cognito User Pools vs. Federated Identities:** Understand the difference between User Pools (local user directory manager, issues JWTs) and Federated Identities (token-to-IAM role exchanger providing temporary AWS credentials).
+* **Securing API Gateway with Cognito Authorizer:** API Gateway validates JWT ID Tokens directly without executing Lambda compute resources, optimizing cost and response latency.
+* **Authorization via IAM Roles vs. User Pool Authorizers:**
+  * *IAM Authorization:* Best when fine-grained access control is required using IAM policies tied to credentials generated from Federated Identities.
+  * *Cognito User Pool Authorizer:* Best when only JWT verification is needed to grant API access, without requiring AWS STS credentials.
+* **Least Privilege Principle:** Each Serverless component (Lambda, S3, DynamoDB) is granted only the minimum required permissions via specific IAM roles and policies to reduce the blast radius in case of a breach.
 
 ---
 
 ### 3. Images
-Below is the comprehensive multi-layered security architecture diagram and the authentication flow applied to the AI Riddle Generator on AWS:
+Below are the architectural diagrams and validation flows from the original article illustrating user access control:
 
-1. **Comprehensive Security Architecture Diagram:**
-   ![Comprehensive Security Architecture Diagram](/images/5-Workshop/5.1-Workshop-overview/1.png)
+1. **Identity Providers supported by Cognito Federated Identities (Figure 1):**
+   ![Supported IdPs](/images/3-BlogsPosted/Blog2/image005.png)
 
-2. **Cognito & API Gateway Authentication Flow:**
-   ![Cognito Authentication Flow](/images/3-BlogsPosted/Blog2/CognitoDiagram.png)
+2. **Analogy: User Pools issue passports (JWTs) and Identity Pools issue boarding passes (IAM Credentials) (Figure 2):**
+   ![Passport Boarding Pass Analogy](/images/3-BlogsPosted/Blog2/image007.png)
+
+3. **Angular V4 Single Page Application interface for testing IdPs (Figure 3):**
+   ![Angular Application UI](/images/3-BlogsPosted/Blog2/image009.png)
+
+4. **Comprehensive security architecture diagram integrating Cognito, API Gateway, Lambda, and DynamoDB (Figure 4):**
+   ![Security Architecture Diagram](/images/3-BlogsPosted/Blog2/CognitoDiagram.png)
+
+5. **User details retrieved after Google authentication (Figure 5):**
+   ![Google Sign In](/images/3-BlogsPosted/Blog2/image011.png)
+
+6. **Google user profile information dashboard (Figure 6):**
+   ![Google Profile Dashboard](/images/3-BlogsPosted/Blog2/image013.png)
+
+7. **Cognito Federated Identities Console tracking unique Identity IDs (Figure 7):**
+   ![Cognito Identity Console](/images/3-BlogsPosted/Blog2/image015.png)
+
+8. **Test Access card: Request allowed for /cip (Status 200) but denied for /google (Status 403) (Figure 8):**
+   ![Access Control Test](/images/3-BlogsPosted/Blog2/image017.png)
+
+9. **Group Management and IAM Role mapping in Cognito User Pools (Figure 9):**
+   ![Cognito User Pool Groups](/images/3-BlogsPosted/Blog2/image019.png)
+
+10. **Access Denied response for API paths not mapped to user roles (Figure 10):**
+    ![Access Denied API Response](/images/3-BlogsPosted/Blog2/image021.png)
+
+11. **Configuring Cognito User Pool Authorizer directly on API Gateway (Figure 11):**
+    ![Cognito User Pool Authorizer Setup](/images/3-BlogsPosted/Blog2/image023-1.png)
+
+12. **Testing JWT Token Claims inside the API Gateway Console (Figure 12):**
+    ![Testing Token Claims](/images/3-BlogsPosted/Blog2/image025.png)
+
+13. **User profiles successfully persisted to DynamoDB via API calls (Figure 13):**
+    ![DynamoDB User Records](/images/3-BlogsPosted/Blog2/image027.png)
 
 ---
 
@@ -41,7 +74,7 @@ Below is the comprehensive multi-layered security architecture diagram and the a
 ---
 
 ### 5. Guides
-The specific technical configurations deployed across the layers include:
+The technical implementations deployed across the security layers include:
 1. **Edge Infrastructure:**
    * *Traffic Encryption:* CloudFront enforces HTTPS redirects for all client-to-CDN traffic.
    * *Rate Limiting:* AWS WAF rules restrict requests (e.g., maximum 100 requests per minute per IP address) to block malicious bulk API script executions.
