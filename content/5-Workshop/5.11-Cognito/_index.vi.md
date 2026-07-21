@@ -44,7 +44,7 @@ pre : " <b> 5.11. </b> "
 
 1. Quay lại dịch vụ **API Gateway**, mở API `AI-Riddle-API` đã tạo ở phần trước. Tại menu bên trái chọn **Authorizers** rồi bấm **Create authorizer**.
 
-   ![create-authorizer](/images/5-Workshop/5.11-Cognito/create-authorizes.png)
+   ![create-authorizer](/images/5-Workshop/5.11-Cognito/Create-authorizes.png)
 
 2. Cấu hình thông tin Authorizer:
    - **Authorizer name**: Nhập tên (ví dụ: `Cognito-Auth`).

@@ -23,26 +23,26 @@ Chúng ta áp dụng các chuẩn kiến trúc tối ưu sau:
 
 1. Tìm kiếm và truy cập dịch vụ **API Gateway**, nhấn chọn **Create API**.
 
-   ![create-api](/images/5-Workshop/5.10-APIGateway/create-api.png)
+   ![create-api](/images/5-Workshop/5.10-APIGateway/Create%20API.png)
 
 2. Kéo xuống tìm loại **REST API** (Lưu ý: Không chọn loại REST API Private) và nhấn chọn **Build**.
 
-   ![rest-api](/images/5-Workshop/5.10-APIGateway/rest-api.png)
+   ![rest-api](/images/5-Workshop/5.10-APIGateway/Rest%20API.png)
 
 3. Cấu hình thông tin API:
    - **API name**: `AI-Riddle-API`
    - **Endpoint Type**: Chọn **Regional** hoặc **Edge-optimized**.
    - Bấm **Create API**.
 
-   ![api-config](/images/5-Workshop/5.10-APIGateway/ai-riddle-api.png)
+   ![api-config](/images/5-Workshop/5.10-APIGateway/AI-Riddle-API.png)
 
 4. Sau khi tạo thành công, bạn sẽ được chuyển đến trang quản trị tài nguyên.
 
-   ![api-created](/images/5-Workshop/5.10-APIGateway/thanh-cong-api.png)
+   ![api-created](/images/5-Workshop/5.10-APIGateway/thành%20công%20API.png)
 
 5. Nhấn nút **Create resource** để tạo các đường dẫn endpoint cho ứng dụng.
 
-   ![create-resource](/images/5-Workshop/5.10-APIGateway/create-resoure.png)
+   ![create-resource](/images/5-Workshop/5.10-APIGateway/Create%20resoure.png)
 
 6. Tạo lần lượt các đường dẫn (paths) theo cấu trúc logic dự án:
    - `/Create-Riddle`
@@ -50,11 +50,11 @@ Chúng ta áp dụng các chuẩn kiến trúc tối ưu sau:
    - `/export`
    - `/generate`
 
-   ![api-paths](/images/5-Workshop/5.10-APIGateway/api-theo-cau-truc.png)
+   ![api-paths](/images/5-Workshop/5.10-APIGateway/API%20theo%20cấu%20trúc.png)
 
 7. Chọn đường dẫn tương ứng (Ví dụ: `/Create-Riddle`) và nhấn chọn **Create method**.
 
-   ![create-method](/images/5-Workshop/5.10-APIGateway/create-method.png)
+   ![create-method](/images/5-Workshop/5.10-APIGateway/create%20method.png)
 
 8. Thiết lập thông số cho method:
    - **Method type**: Chọn `POST`.
@@ -63,28 +63,28 @@ Chúng ta áp dụng các chuẩn kiến trúc tối ưu sau:
    - Chọn đúng Region và tìm hàm Lambda xử lý nghiệp vụ tương ứng đã được code sẵn.
    - Nhấn **Create method**.
 
-   ![method-integration](/images/5-Workshop/5.10-APIGateway/thiet-lap-method.png)
-   ![method-region](/images/5-Workshop/5.10-APIGateway/thiet-lap-method-2.png)
+   ![method-integration](/images/5-Workshop/5.10-APIGateway/thiết%20lập%20method.png)
+   ![method-region](/images/5-Workshop/5.10-APIGateway/thiết%20lập%20method%202.png)
 
 9. Bạn sẽ thấy method được tạo thành công bên dưới cấu trúc thư mục.
 
-   ![method-created](/images/5-Workshop/5.10-APIGateway/thanh-cong-method-api.png)
+   ![method-created](/images/5-Workshop/5.10-APIGateway/thành%20công%20method%20API.png)
 
 10. Chọn đường dẫn resource và kích hoạt nút **Enable CORS** từ thanh tác vụ.
 
-     ![enable-cors](/images/5-Workshop/5.10-APIGateway/enable-cors.png)
+     ![enable-cors](/images/5-Workshop/5.10-APIGateway/enable%20CORS.png)
 
 11. Tích chọn các phương thức (ví dụ: `POST` và `OPTIONS`) rồi nhấn chọn **Save** để lưu.
 
-     ![cors-settings](/images/5-Workshop/5.10-APIGateway/opption-cors.png)
+     ![cors-settings](/images/5-Workshop/5.10-APIGateway/opption%20CORS.png)
 
 12. Chọn tác vụ **Deploy API** để xuất bản API của bạn.
 
-     ![deploy-api](/images/5-Workshop/5.10-APIGateway/deploy-api.png)
+     ![deploy-api](/images/5-Workshop/5.10-APIGateway/Deploy%20API.png)
 
 13. Tại mục Stage, chọn **New stage** (hoặc chọn stage có sẵn), đặt tên stage (ví dụ: `dev`) rồi nhấn **Deploy**.
 
-     ![stage-deploy](/images/5-Workshop/5.10-APIGateway/new-state-dev.png)
+     ![stage-deploy](/images/5-Workshop/5.10-APIGateway/new%20state%20dev.png)
 
 14. Sao chép lại địa chỉ **Invoke URL** được sinh ra (ví dụ: `https://44vwnl4k95.execute-api.ap-southeast-1.amazonaws.com/dev`).
 
@@ -94,7 +94,7 @@ Chúng ta áp dụng các chuẩn kiến trúc tối ưu sau:
 
 1. Quay lại bảng quản trị **AWS Amplify**, chọn ứng dụng giao diện của bạn, tại thanh bên trái chọn mục **Hosting** -> **Environment variables**.
 
-   ![amplify-vars](/images/5-Workshop/5.10-APIGateway/environment-variables.png)
+   ![amplify-vars](/images/5-Workshop/5.10-APIGateway/Environment%20Variables.png)
 
 2. Nhấn chọn nút **Manage variables** rồi chọn **Add variable**.
 
@@ -105,7 +105,7 @@ Chúng ta áp dụng các chuẩn kiến trúc tối ưu sau:
    - **Value**: Địa chỉ Invoke URL của API Gateway đã copy ở bước trước.
    - Bấm **Save** để lưu lại.
 
-   ![save-var](/images/5-Workshop/5.10-APIGateway/value-theo-state.png)
+   ![save-var](/images/5-Workshop/5.10-APIGateway/value%20theo%20state.png)
 
 4. Thực hiện chạy lại một lượt deploy mới trên AWS Amplify.
 

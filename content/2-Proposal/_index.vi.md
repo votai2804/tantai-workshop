@@ -89,8 +89,8 @@ Xây dựng giải pháp serverless kết hợp Generative AI:
 ✅ **Chức năng**
 - **Tạo câu đố thông minh (AI Inference)**: Tự động hóa quá trình sáng tạo câu đố, thơ giấu đầu (Acrostic) và câu đố tiếng Việt từ từ khóa gợi ý và tùy chỉnh (thể loại, độ tuổi, độ khó) sử dụng mô hình ngôn ngữ Anthropic Claude 3.5 Sonnet qua Amazon Bedrock.
 - **Xác thực và Phân quyền (Authentication & Authorization)**: Đăng nhập/Đăng ký an toàn với Cognito User Pool, bảo mật toàn diện các API Gateway REST endpoint sử dụng Cognito Authorizer.
-- **Lưu trữ lịch sử (Data Persistence)**: Tự động lưu trữ lịch sử tạo câu đố, trạng thái yêu thích (upvotes), từ khóa và kết quả của từng tài khoản người dùng vào Amazon DynamoDB.
-- **Lưu trữ và Xuất file (Storage & Document Export)**: Lưu trữ file văn bản in ấn (PDF/Word) trên Amazon S3 và cung cấp liên kết tải xuống an toàn, giới hạn thời gian qua S3 Presigned URL.
+phát triển tương lai- **Lưu trữ lịch sử (Data Persistence)**: Tự động lưu trữ lịch sử tạo câu đố, trạng thái yêu thích (upvotes), từ khóa và kết quả của từng tài khoản người dùng vào Amazon DynamoDB.
+phát triển tương lai- **Lưu trữ và Xuất file (Storage & Document Export)**: Lưu trữ file văn bản in ấn (PDF/Word) trên Amazon S3 và cung cấp liên kết tải xuống an toàn, giới hạn thời gian qua S3 Presigned URL.
 - **Cửa ngõ API Serverless**: Điều phối toàn bộ dữ liệu và xử lý nghiệp vụ thông qua AWS Lambda và Amazon API Gateway.
 - **Tăng tốc & Định tuyến (Routing & Hosting)**: Deploy tự động qua GitHub CI/CD lên AWS Amplify, tối ưu hóa tốc độ truy cập toàn cầu bằng Amazon CloudFront và trỏ tên miền Route 53.
 - **Giám sát & Cảnh báo (Observability)**: Sử dụng Amazon CloudWatch Alarm để theo dõi tỷ lệ lỗi của Lambda, tự động kích hoạt Amazon SNS gửi email cảnh báo tức thời cho quản trị viên khi phát hiện bất thường.

@@ -23,26 +23,26 @@ We apply the following architectural practices:
 
 1. Open the **API Gateway** console and click **Create API**.
 
-   ![create-api](/images/5-Workshop/5.10-APIGateway/create-api.png)
+   ![create-api](/images/5-Workshop/5.10-APIGateway/Create%20API.png)
 
 2. Scroll down to find **REST API** (make sure not to select Private REST API) and click **Build**.
 
-   ![rest-api](/images/5-Workshop/5.10-APIGateway/rest-api.png)
+   ![rest-api](/images/5-Workshop/5.10-APIGateway/Rest%20API.png)
 
 3. Configure the API settings:
    - **API name**: `AI-Riddle-API`
    - **Endpoint Type**: Choose **Regional** or **Edge-optimized**.
    - Click **Create API**.
 
-   ![api-config](/images/5-Workshop/5.10-APIGateway/ai-riddle-api.png)
+   ![api-config](/images/5-Workshop/5.10-APIGateway/AI-Riddle-API.png)
 
 4. Once the API is created, you will see the resources dashboard.
 
-   ![api-created](/images/5-Workshop/5.10-APIGateway/thanh-cong-api.png)
+   ![api-created](/images/5-Workshop/5.10-APIGateway/thành%20công%20API.png)
 
 5. Click **Create resource** to build paths representing your application logic endpoints.
 
-   ![create-resource](/images/5-Workshop/5.10-APIGateway/create-resoure.png)
+   ![create-resource](/images/5-Workshop/5.10-APIGateway/Create%20resoure.png)
 
 6. Create the following paths one by one:
    - `/Create-Riddle`
@@ -50,11 +50,11 @@ We apply the following architectural practices:
    - `/export`
    - `/generate`
 
-   ![api-paths](/images/5-Workshop/5.10-APIGateway/api-theo-cau-truc.png)
+   ![api-paths](/images/5-Workshop/5.10-APIGateway/API%20theo%20cấu%20trúc.png)
 
 7. Select a resource path (e.g. `/Create-Riddle`) and click **Create method**.
 
-   ![create-method](/images/5-Workshop/5.10-APIGateway/create-method.png)
+   ![create-method](/images/5-Workshop/5.10-APIGateway/create%20method.png)
 
 8. Configure the method:
    - **Method type**: Choose `POST`.
@@ -63,28 +63,28 @@ We apply the following architectural practices:
    - Choose the AWS region and search for your backend Lambda function.
    - Click **Create method**.
 
-   ![method-integration](/images/5-Workshop/5.10-APIGateway/thiet-lap-method.png)
-   ![method-region](/images/5-Workshop/5.10-APIGateway/thiet-lap-method-2.png)
+   ![method-integration](/images/5-Workshop/5.10-APIGateway/thiết%20lập%20method.png)
+   ![method-region](/images/5-Workshop/5.10-APIGateway/thiết%20lập%20method%202.png)
 
 9. The method will show up under the resource structure.
 
-   ![method-created](/images/5-Workshop/5.10-APIGateway/thanh-cong-method-api.png)
+   ![method-created](/images/5-Workshop/5.10-APIGateway/thành%20công%20method%20API.png)
 
 10. Click on the path resource and select **Enable CORS** from the Actions.
 
-     ![enable-cors](/images/5-Workshop/5.10-APIGateway/enable-cors.png)
+     ![enable-cors](/images/5-Workshop/5.10-APIGateway/enable%20CORS.png)
 
 11. Check the options for the methods you created (e.g., `POST` and `OPTIONS`), then click **Save**.
 
-     ![cors-settings](/images/5-Workshop/5.10-APIGateway/opption-cors.png)
+     ![cors-settings](/images/5-Workshop/5.10-APIGateway/opption%20CORS.png)
 
 12. Click **Deploy API** to publish your endpoints.
 
-     ![deploy-api](/images/5-Workshop/5.10-APIGateway/deploy-api.png)
+     ![deploy-api](/images/5-Workshop/5.10-APIGateway/Deploy%20API.png)
 
 13. Select **New stage** (or use existing), name the stage (e.g. `dev`), and click **Deploy**.
 
-     ![stage-deploy](/images/5-Workshop/5.10-APIGateway/new-state-dev.png)
+     ![stage-deploy](/images/5-Workshop/5.10-APIGateway/new%20state%20dev.png)
 
 14. Copy the generated **Invoke URL** (e.g., `https://44vwnl4k95.execute-api.ap-southeast-1.amazonaws.com/dev`).
 
@@ -94,7 +94,7 @@ We apply the following architectural practices:
 
 1. Go back to the **AWS Amplify** console, select your application, and click **Environment variables** in the hosting sidebar.
 
-   ![amplify-vars](/images/5-Workshop/5.10-APIGateway/environment-variables.png)
+   ![amplify-vars](/images/5-Workshop/5.10-APIGateway/Environment%20Variables.png)
 
 2. Click **Manage variables** and click **Add variable**.
 
@@ -105,7 +105,7 @@ We apply the following architectural practices:
    - **Value**: Paste the API Gateway stage Invoke URL.
    - Click **Save**.
 
-   ![save-var](/images/5-Workshop/5.10-APIGateway/value-theo-state.png)
+   ![save-var](/images/5-Workshop/5.10-APIGateway/value%20theo%20state.png)
 
 4. Trigger a new deployment of your Amplify frontend. 
 

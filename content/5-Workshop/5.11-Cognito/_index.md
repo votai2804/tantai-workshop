@@ -44,7 +44,7 @@ To protect the backend API resources of the **AI Riddle Generator** from unautho
 
 1. Return to the **API Gateway** console and open the `AI-Riddle-API` you created in the previous section. Click **Authorizers** in the left menu, then click **Create authorizer**.
 
-   ![create-authorizer](/images/5-Workshop/5.11-Cognito/create-authorizes.png)
+   ![create-authorizer](/images/5-Workshop/5.11-Cognito/Create-authorizes.png)
 
 2. Configure Authorizer parameters:
    - **Authorizer name**: Enter a name (e.g. `Cognito-Auth`).

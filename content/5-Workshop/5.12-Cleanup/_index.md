@@ -6,86 +6,58 @@ chapter: false
 pre: " <b> 5.12. </b> "
 ---
 
-
 ### Decommissioning & Cleaning Up Cloud Resources
 
-Upon completing this hands-on workshop series, you should clean up all provisioned cloud resources in your AWS account. This prevents any unexpected charges from active background services.
+Upon completing this hands-on workshop series, clean up all provisioned cloud resources to prevent unexpected billing (primarily driven by active WAF firewall rules, S3 storage, or active hosted Amplify build targets).
 
-Follow the detailed decommissioning steps below according to the administration console:
-
----
-
-### Step 1: Clean Up Amazon Route 53
-1. Navigate to the **Route 53 Console** and click **Hosted zones** in the left menu to view your managed domain list.
-
-   ![Route 53 Hosted Zones](/images/5-Workshop/5.12-Clienup/route53-hostedzones.png)
-
-2. Select the hosted zone and click **Delete zone**. Note: You must delete all custom DNS records (such as CNAME or A records mapping to the web application) first before the console permits the zone deletion.
-
-   ![Delete Hosted Zones](/images/5-Workshop/5.12-Clienup/route53-deletehostedzones.png)
+Delete your resources in the following sequence:
 
 ---
 
-### Step 2: Remove AWS Amplify App
-1. Navigate to the **AWS Amplify Console** to view all active frontend applications on your account.
-
-   ![AWS Amplify Dashboard](/images/5-Workshop/5.12-Clienup/aws-amplify.png)
-
-2. Click on your frontend application, and in the left sidebar navigation, select **App settings** -> **General** (or click on the app settings configuration directly).
-
-   ![AWS Amplify App details](/images/5-Workshop/5.12-Clienup/aws-amplify-app.png)
-
-3. Scroll to the bottom of the General settings page, locate the critical actions section, and click the red **Delete app** button.
-
-   ![AWS Amplify App Settings Delete](/images/5-Workshop/5.12-Clienup/aws-amplify-appsetting-delete.png)
-
-4. A confirmation dialog will appear. Type `delete` in the text field to confirm permanent removal of the app and all associated build files.
+### 1. Delete CloudWatch Alarm & SNS Topic
+1. Open the **CloudWatch console** -> **Alarms** -> **All alarms** -> Select the `generateRiddle-HighErrorRate` alarm -> Click **Action** -> Select **Delete**.
+2. Open the **SNS console** -> **Topics** -> Select `RiddleAppAlerts` -> Click **Delete**. Ensure associated email subscriptions are also deleted.
 
 ---
 
-### Step 3: Delete CloudFront Distributions
-1. Navigate to the **CloudFront Console**, and in the **Distributions** list view, select the CDN distribution you set up for edge acceleration or firewall protection.
-2. Click **Disable** to deactivate the distribution first. Once the status shows disabled, select it and click **Delete**.
-
-   ![CloudFront Distributions](/images/5-Workshop/5.12-Clienup/cloudfront-distributions.png)
+### 2. Remove AWS Amplify App & DNS Mappings
+1. Open the **AWS Amplify console** -> Select your frontend application -> Click **Actions** -> Select **Delete app**.
+2. Open the **Route 53 console** (if mapping a custom domain) -> Delete the Alias A Records or CNAME records mapped to the Amplify CDN endpoints.
 
 ---
 
-### Step 4: Delete Amazon API Gateway
-1. Open the **API Gateway Console** to manage your list of endpoints.
-
-   ![API Gateway APIs](/images/5-Workshop/5.12-Clienup/apigateway-apis.png)
-
-2. Select the API `AI-Riddle-API`, click on its options or navigate to the detailed Resources screen, and click **Delete** to clean up the backend-frontend gateway.
-
-   ![Delete API Gateway Resources](/images/5-Workshop/5.12-Clienup/apigateway-apis-resources.png)
+### 3. Delete AWS WAF Web ACL
+1. Open the **AWS WAF console** -> **Web ACLs** -> Select your ACL -> Go to **Associated AWS resources** -> Remove the bindings pointing to your CloudFront distribution.
+2. Return to the Web ACLs list view, select the ACL, and click **Delete**.
 
 ---
 
-### Step 5: Delete Amazon Cognito User Pool
-1. Navigate to the **Cognito Console** and click **User pools** to check your user identities lists.
-
-   ![Cognito Pools](/images/5-Workshop/5.12-Clienup/cognito.png)
-
-2. Select the User Pool configured as the API Gateway Authorizer, verify the pool details, and click **Delete** to purge the identity database.
-
-   ![Delete Cognito User Pool](/images/5-Workshop/5.12-Clienup/cognito-userpool.png)
+### 4. Delete Amazon API Gateway
+1. Navigate to the **API Gateway console** -> Select `RiddleHTTPAPI` -> Click **Actions** -> Select **Delete**.
 
 ---
 
-### Step 6: Delete AWS Lambda Functions
-1. Open the **AWS Lambda Console** and select **Functions**.
-2. Select the primary business logic Lambda function `Create-Riddle`, open the **Actions** menu, and select **Delete** to decommission the serverless compute resource.
-
-   ![Delete Lambda function](/images/5-Workshop/5.12-Clienup/lambda-delete.png)
+### 5. Delete Amazon Cognito User Pool
+1. Open the **Cognito console** -> Select `RiddleAppUserPool` -> Click **Delete**.
 
 ---
 
-### Step 7: Clean Up Other Resources (S3, DynamoDB, CloudWatch, SNS, IAM)
-To ensure your AWS account is fully clean and does not incur any residual costs, complete the following manual steps:
-1. **Amazon DynamoDB**: Open the **DynamoDB Console** -> **Tables** -> Select the `AiRiddleGenerator_Core` table and click **Delete table**.
-2. **Amazon S3**: Open the **S3 Console** -> Select the `ai-riddle-storage` bucket, click **Empty** to clear all exports and static contents, then click **Delete** to remove the bucket permanently.
-3. **CloudWatch Dashboard & Alarms**: Access the **CloudWatch Console**, delete the custom monitoring Dashboard you created, and delete any Lambda error alarms in the **Alarms** -> **All alarms** section.
-4. **Amazon SNS**: Open the **SNS Console** -> **Topics** -> Select the alert topic and click **Delete**.
-5. **AWS IAM**: Open the **IAM Console** -> **Roles** to delete the Lambda execution roles and any associated custom policies.
+### 6. Remove AWS Lambda Function & IAM Credentials
+1. Open the **AWS Lambda console** -> Select the `generateRiddle` function -> Click **Actions** -> Select **Delete**.
+2. Open the **IAM console**:
+    *   **Roles**: Find `LambdaRiddleRole` and click **Delete**.
+    *   **Policies**: Find `LambdaRiddlePolicy` and click **Delete**.
 
+---
+
+### 7. Delete Amazon DynamoDB Table
+1. Open the **DynamoDB console** -> **Tables** -> Select the `Riddles` table -> Click **Delete**. Enter the confirmation text to delete the schema and rows permanently.
+
+---
+
+### 8. Remove Amazon S3 Bucket
+1. Open the **S3 console** -> Select the `riddle-document-exports-107204` bucket.
+2. S3 requires buckets to be completely empty before deletion. Click **Empty** to wipe all files.
+3. Once emptied, return to the bucket list view, select the bucket, click **Delete**, and enter the bucket name to confirm permanent removal.
+
+Congratulations on successfully completing the AWS Serverless AI Riddle Generator workshop!

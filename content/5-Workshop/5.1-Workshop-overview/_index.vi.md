@@ -14,7 +14,7 @@ Qua bài thực hành, bạn sẽ nắm được cách hoạt động và khả 
 ### 2. Sơ đồ kiến trúc giải pháp
 Dưới đây là sơ đồ kiến trúc tổng quan mô tả luồng đi của dữ liệu từ thiết bị đầu cuối của người dùng qua các tầng bảo mật, xử lý logic backend, gọi AI sinh câu đố và tương tác cơ sở dữ liệu:
 
-![Sơ đồ kiến trúc toàn diện](/images/2-Proposal/AI-Riddle-Generator.png)
+![Sơ đồ kiến trúc toàn diện](/images/5-Workshop/5.1-Workshop-overview/1.png)
 
 ### 3. Quy trình luồng dữ liệu (Data Flow)
 1. **Phân giải & Phân phối (Edge)**: Người dùng truy cập domain thông qua **Route 53**. Yêu cầu tải giao diện tĩnh được **CloudFront** CDN phân phối bảo mật qua giao thức HTTPS từ **AWS Amplify**.
