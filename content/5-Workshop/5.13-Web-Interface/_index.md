@@ -46,10 +46,10 @@ Below is the chronological, step-by-step user journey executed on the live front
     ![Hint 1 Revealed](/images/5-Workshop/5.13-Web-Interface/test_create_riddle_hint.png)
 *   **Final Answer Disclosure Test:**
     Click **🏆 XEM ĐÁP ÁN CUỐI CÙNG** to expand the answer badge:
-    ![Answer Uncovered](/images/5-Workshop/5.13-Web-Interface/test_create_riddle_saved.png)
+    ![Answer Uncovered](/images/5-Workshop/5.13-Web-Interface/test_create_riddle_answer.png)
 *   **Save to Library Test:**
     Click **Lưu Vào Thư Viện** to write the riddle card to memory. The button updates to `⭐ Đã Lưu Vào Thư Viện`:
-    ![Riddle Saved](/images/5-Workshop/5.13-Web-Interface/test_create_riddle_answer.png)
+    ![Riddle Saved](/images/5-Workshop/5.13-Web-Interface/test_create_riddle_saved.png)
 
 #### 1.3. Community Board Module - *Future Development*
 *   **Functional Description:** Renders public riddle cards created by members, sorted by upvote count using DynamoDB GSI1. Students submit guesses, and users upvote high-quality content.
