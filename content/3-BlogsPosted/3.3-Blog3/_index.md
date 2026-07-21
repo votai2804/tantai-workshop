@@ -9,35 +9,38 @@ pre: " <b> 3.3. </b> "
 # How One Organization Cut AWS Costs by 39% in 12 Weeks
 
 ### 1. Main Content
-This post explores a real-world case study of a SaaS company's Platform Engineering team with a monthly AWS spend of approximately $35,000 USD (processing 150 TB of data). Anticipating a 10x growth phase that would scale costs to $350,000 USD/month, the team adopted a staged cloud optimization strategy over 12 weeks to minimize deployment risks, successfully cutting **39% off their monthly AWS bill** (saving $13,700 USD/month).
+This post explores a real-world case study of a SaaS company's Platform Engineering team with a monthly AWS spend of approximately $35,000 USD (processing 150 TB of data). Anticipating a 10x growth phase that would scale costs to $350,000 USD/month (nearly $4.2 million USD/year), the team adopted a staged cloud optimization strategy over 12 weeks to minimize deployment risks, successfully cutting **39% off their monthly AWS bill** (saving $13,700 USD/month).
 
 ---
 
 ### 2. Key Takeaways
-* **S3 Tiering & EBS Upgrades:** Migrated EBS volumes from gp2 to gp3 (saving 20% on volume costs) and enabled S3 Intelligent-Tiering to automatically transition rarely-accessed files to cheaper storage tiers.
-* **NAT Gateway & VPC Endpoint:** Configured a VPC Gateway Endpoint for S3 to route S3 traffic internally within the AWS network, eliminating high NAT Gateway data transfer charges.
-* **Load Balancer Consolidation (NLB to ALB):** Consolidated over 150 Network Load Balancers (NLBs) allocated per-service into 5 Application Load Balancers (ALBs) using Route 53 Weighted Routing.
-* **Karpenter & AWS Graviton ARM Migration:** Replaced the legacy Cluster Autoscaler with Karpenter and migrated applications to ARM-based AWS Graviton instances, saving an additional 20% on compute costs.
+* **Effort vs. Impact Prioritization Framework:** Building a custom scoring table to rank optimization projects. Low-effort, low-risk, high-impact tasks are prioritized to generate quick wins and fund later phases.
+* **Internal Routing via VPC Gateway Endpoints:** Rerouting S3 traffic internally within the AWS private network instead of NAT Gateways, completely eliminating expensive data transfer charges.
+* **Load Balancer Consolidation:** Grouping and consolidating over 150 legacy Network Load Balancers (NLBs) allocated per-service into 5 Application Load Balancers (ALBs) organized by domain boundaries.
+* **Elastic Infrastructure Right-Sizing:** Migrating EBS gp2 volumes online to gp3, right-sizing memory-bound instances to r6a.2xlarge AMD instances, deploying Karpenter for dynamic node provisioning, and shifting node pools to ARM-based Graviton2.
 
 ---
 
 ### 3. Images
-Below are the data charts and optimization results captured during the 12-week cost reduction campaign:
+Below are the data charts and architecture diagrams from the original article illustrating the optimization workflow:
 
-1. **Analyzing expensive NAT Gateway data transfer traffic:**
-   ![NAT Gateway Traffic Analysis](/images/3-BlogsPosted/Blog3/1.png)
+1. **Effort-versus-impact scoring that sequenced the seven optimizations by phase (Figure 1):**
+   ![Effort vs Impact Scoring](/images/3-BlogsPosted/Blog3/1.png)
 
-2. **Configuring internal VPC Gateway Endpoint routing for S3:**
-   ![VPC Endpoint for S3](/images/3-BlogsPosted/Blog3/2.png)
+2. **Baseline monthly cost distribution across service categories (Figure 2):**
+   ![Baseline Monthly Cost Distribution](/images/3-BlogsPosted/Blog3/2.png)
 
-3. **Consolidating 150 legacy NLBs into 5 ALBs:**
-   ![Load Balancer Consolidation](/images/3-BlogsPosted/Blog3/3.png)
+3. **Three-phase plan ordered by risk and effort level (Figure 3):**
+   ![Three Phase Optimization Plan](/images/3-BlogsPosted/Blog3/3.png)
 
-4. **Dynamic scaling execution using Karpenter and Graviton Nodes:**
-   ![Karpenter Node Auto-scaling](/images/3-BlogsPosted/Blog3/4.png)
+4. **Before-state: Route 53 DNS routes to a dedicated NLB per HTTP service (Figure 4):**
+   ![Before state NLB architecture](/images/3-BlogsPosted/Blog3/4.png)
 
-5. **Final 39% AWS monthly bill savings dashboard:**
-   ![Cost Optimization Results](/images/3-BlogsPosted/Blog3/5.png)
+5. **After-state: Route 53 DNS routes to five domain-grouped ALBs (Figure 5):**
+   ![After state ALB architecture](/images/3-BlogsPosted/Blog3/5.png)
+
+6. **Monthly savings delivered across the three implementation phases (Figure 6):**
+   ![Monthly Savings Dashboard](/images/3-BlogsPosted/Blog3/6.png)
 
 ---
 
@@ -50,7 +53,7 @@ Below are the data charts and optimization results captured during the 12-week c
 ### 5. Guides
 The 12-week cost optimization project was executed in three primary phases:
 1. **Phase 1: Infrastructure Foundations (Weeks 1 - 4):**
-   * *Actions:* Performed live migrations from gp2 to gp3 EBS volumes and enabled S3 Intelligent-Tiering. Created a VPC Gateway Endpoint for S3. Utilized the AWS Load Balancer Controller to consolidate 150 legacy NLBs into 5 ALBs.
+   * *Actions:* Migrated gp2 EBS volumes online to gp3, enabled S3 Intelligent-Tiering. Created a VPC Gateway Endpoint for S3. Utilized the AWS Load Balancer Controller to consolidate 150 legacy NLBs into 5 ALBs.
 2. **Phase 2: Compute Right-Sizing (Weeks 4 - 8):**
    * *Actions:* Analyzed usage via AWS Compute Optimizer to detect memory-bound instances and migrated workloads to RAM-optimized r6a.2xlarge instances, halving vCPU counts while retaining RAM capacities.
 3. **Phase 3: Karpenter & Graviton Next-Gen Architecture (Weeks 8 - 12):**
