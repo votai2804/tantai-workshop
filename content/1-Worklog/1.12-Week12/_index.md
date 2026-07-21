@@ -5,8 +5,9 @@ weight: 12
 chapter: false
 pre: " <b> 1.12. </b> "
 ---
-### Mục tiêu t* Dự án: * Dự án: Kiểm thử hệ thống toàn diện (End-to-End Testing) và tối ưu hóa mã nguồn.
-* Project Presentation: AI Riddle Generator final report
+### Week 12 Goals:
+* Run comprehensive End-to-End testing & optimize source code.
+* Project Presentation: AI Riddle Generator final report.
 * Hand over documentation and obtain internship completion sign-offs.
 ### Tasks to be carried out this week (06/07 - 10/07/2026):
 | Day | Task | Start Date | Completion Date | Reference Material |

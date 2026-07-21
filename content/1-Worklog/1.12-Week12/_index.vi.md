@@ -6,7 +6,8 @@ chapter: false
 pre: " <b> 1.12. </b> "
 ---
 
-### Mục tiêu t* Dự án: * Dự án: Kiểm thử hệ thống toàn diện (End-to-End Testing) và tối ưu hóa mã nguồn.
+### Mục tiêu tuần 12:
+* Kiểm thử hệ thống toàn diện (End-to-End Testing) và tối ưu hóa mã nguồn.
 * Báo cáo tổng kết dự án AI Riddle Generator.
 * Bàn giao tài liệu và lấy xác nhận thực tập tại doanh nghiệp.
 
