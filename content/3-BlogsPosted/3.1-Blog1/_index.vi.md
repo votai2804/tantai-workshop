@@ -8,76 +8,38 @@ pre: " <b> 3.1. </b> "
 
 # Vì sao Epic Games phát triển Lore và cách AWS giúp tối ưu lưu trữ binary assets
 
-Chào mọi người cộng đồng AWS Study Group VN. Mình muốn chia sẻ bài viết này với mọi người.
+### 1. Nội dung chính (Main Content)
+Hệ thống quản lý phiên bản truyền thống (như Git) không được tối ưu cho các tệp nhị phân lớn (binary assets) như texture, 3D model, animation hoặc engine binaries trong phát triển game. Mỗi lần chỉnh sửa, Git thường phải lưu lại toàn bộ tệp mới, gây lãng phí dung lượng và chi phí lưu trữ.
 
-Nếu bạn từng phát triển game với hàng nghìn texture, model, animation hay engine binaries, chắc hẳn bạn sẽ thấy các hệ thống version control truyền thống như Git không thực sự phù hợp với các file nhị phân. Mỗi lần chỉnh sửa một file vài trăm MB, hệ thống thường phải lưu lại gần như toàn bộ file dưới dạng phiên bản mới, dù chỉ thay đổi một phần rất nhỏ. Theo thời gian, lượng dữ liệu tăng rất nhanh và kéo theo chi phí lưu trữ ngày càng lớn.
-
-Để giải quyết bài toán này, Epic Games đã phát triển **Lore** – một hệ thống version control mã nguồn mở dành riêng cho binary assets. Đồng thời, AWS cũng giới thiệu kiến trúc tham chiếu giúp triển khai Lore trên nền tảng đám mây.
-
-Trong bài viết này, chúng ta sẽ cùng tìm hiểu:
-* Lore hoạt động khác gì so với version control truyền thống?
-* Kiến trúc triển khai trên AWS gồm những gì?
-* Vì sao mô hình này giúp tối ưu chi phí lưu trữ?
+Để giải quyết vấn đề này, Epic Games đã phát triển **Lore** – một hệ thống version control mã nguồn mở dành riêng cho binary assets. Lore hoạt động bằng cách chia nhỏ các tệp lớn thành các mảnh (fragments/chunks) được định danh bằng cryptographic hash để tái sử dụng tối đa và loại bỏ dữ liệu trùng lặp (deduplication).
 
 ---
 
-## 1. Lore hoạt động khác gì?
-
-Thay vì lưu lại toàn bộ file sau mỗi lần chỉnh sửa, Lore chia mỗi binary thành nhiều fragment (chunk) và định danh chúng bằng cryptographic hash. Điều này có nghĩa:
-* Chỉ các fragment chứa dữ liệu thay đổi mới được lưu.
-* Các fragment đã tồn tại sẽ được tái sử dụng.
-* Một fragment xuất hiện ở nhiều file hoặc nhiều dự án chỉ cần lưu một lần.
-
-Nhờ đó, tốc độ tăng dung lượng lưu trữ giảm đáng kể khi dự án phát triển.
+### 2. Các điểm chính cần nắm (Key Takeaways)
+* **Chia nhỏ dữ liệu (Fragmentation):** Tệp nhị phân được chia thành các fragment nhỏ. Chỉ những fragment có dữ liệu thay đổi mới cần được lưu trữ mới, các phần không đổi sẽ được tái sử dụng.
+* **Tạo nhánh (Branching) tối ưu:** Việc tạo nhánh mới diễn ra gần như tức thời và không làm tăng chi phí lưu trữ vì nó chỉ tạo tham chiếu (references) đến các fragment sẵn có.
+* **Deduplication chéo dự án:** Các fragment trùng lặp giữa nhiều file hoặc thậm chí giữa các dự án game khác nhau chỉ cần được lưu trữ duy nhất một lần.
+* **Kiến trúc Serverless & Cache:** Hệ thống sử dụng EC2 Edge Pods để cache fragment gần client, kết hợp ECS và S3 để xử lý và lưu trữ lâu dài.
 
 ---
 
-## 2. Vì sao Lore giúp tiết kiệm chi phí?
+### 3. Hình ảnh (Images)
+Dưới đây là sơ đồ kiến trúc hệ thống Lore được triển khai trên nền tảng đám mây AWS:
 
-AWS chỉ ra ba lợi ích nổi bật:
-* **Giảm dung lượng lưu trữ**: Chỉ lưu phần dữ liệu thay đổi thay vì toàn bộ file.
-* **Branch gần như miễn phí**: Branch mới chỉ tham chiếu đến các fragment đã có, không tạo thêm dữ liệu nếu asset không thay đổi.
-* **Chia sẻ dữ liệu giữa nhiều dự án**: Các fragment trùng lặp chỉ lưu một lần, giúp tối ưu tài nguyên ở quy mô toàn studio.
+![Kiến trúc Lore trên AWS](/images/3-BlogsPosted/Blog1/blog1.png)
 
 ---
 
-## 3. Kiến trúc Lore trên AWS
-
-AWS triển khai Lore với nhiều dịch vụ quen thuộc, mỗi dịch vụ đảm nhận một vai trò riêng biệt để đảm bảo hiệu suất và khả năng mở rộng:
-
-* **Amazon EC2 (Edge Pods)**: Tiếp nhận kết nối từ client và cache fragment trên ổ NVMe để tăng tốc truy cập.
-* **Amazon ECS (Write Tier)**: Xử lý deduplication (loại bỏ dữ liệu trùng lặp) và ghi dữ liệu mới.
-* **Amazon S3**: Lưu trữ lâu dài các fragment duy nhất một cách an toàn.
-* **Amazon DynamoDB**: Quản lý metadata, lock và thông tin branch với độ trễ tính bằng mili-giây.
-* **AWS Cloud Map**: Giúp Edge Pods tự động tìm Write Tier thông qua DNS nội bộ.
-
-Kiến trúc này giúp hệ thống vừa mở rộng dễ dàng, vừa giảm áp lực lên tầng lưu trữ dữ liệu chính.
+### 4. Link (References)
+* **Bài viết gốc:** [How Lore rethinks binary asset storage on AWS](https://aws.amazon.com/blogs/gametech/how-lore-rethinks-binary-asset-storage-on-aws/)  
+* **Link bài đăng Facebook:** [AWS Study Group VN](https://web.facebook.com/groups/660548818043427/user/100029043690648)  
 
 ---
 
-## 4. Khi nào nên sử dụng Lore?
-
-Hệ thống Lore đặc biệt phù hợp với:
-* Các studio game có nhiều artist và developer cùng cộng tác.
-* Các dự án chứa lượng lớn binary assets.
-* Doanh nghiệp phát triển nhiều tựa game cùng lúc.
-* Đội ngũ muốn tối ưu chi phí lưu trữ và đồng bộ dữ liệu nhanh chóng trên AWS.
-
----
-
-## Kết luận
-
-Lore mang đến một cách tiếp cận mới trong quản lý binary assets bằng cách chia nhỏ dữ liệu thành các fragment có thể tái sử dụng, thay vì lưu toàn bộ file sau mỗi lần chỉnh sửa.
-
-Kết hợp với **Amazon EC2, Amazon ECS, Amazon S3, Amazon DynamoDB** và **AWS Cloud Map**, kiến trúc này giúp:
-1. Giảm chi phí lưu trữ đáng kể.
-2. Tăng tốc quá trình đồng bộ asset.
-3. Hỗ trợ tạo nhánh (branching) hiệu quả.
-4. Tận dụng chéo dữ liệu giữa nhiều dự án.
-5. Dễ dàng mở rộng quy mô khi studio phát triển.
-
-Đối với các studio game làm việc với lượng lớn binary assets, đây là một hướng tiếp cận vô cùng đáng cân nhắc để xây dựng hệ thống version control hiện đại trên AWS.
-
-> **Bài viết gốc:** [How Lore rethinks binary asset storage on AWS](https://aws.amazon.com/blogs/gametech/how-lore-rethinks-binary-asset-storage-on-aws/)  
-> **Link bài đăng Facebook:** [AWS Study Group](https://web.facebook.com/groups/660548818043427/user/100029043690648)  
-> **Tags:** #AWS #AWSForGames #EpicGames #Lore #AmazonS3 #AmazonDynamoDB #AmazonEC2 #AmazonECS #CloudArchitecture #GameDevelopment #VersionControl #BinaryAssets #StorageOptimization
+### 5. Hướng dẫn (Guides)
+Kiến trúc Lore trên AWS được xây dựng từ các thành phần chính sau:
+1. **Amazon EC2 (Edge Pods):** Đóng vai trò làm cổng giao tiếp với client, thực hiện cache fragment trên ổ cứng NVMe để tăng tốc độ truy xuất của lập trình viên và họa sĩ thiết kế.
+2. **Amazon ECS (Write Tier):** Nhận fragment mới tải lên, thực hiện quy trình deduplication và điều phối việc ghi dữ liệu.
+3. **Amazon S3 (Storage Tier):** Nơi lưu trữ lâu dài và an toàn cho tất cả các fragment duy nhất (unique fragments).
+4. **Amazon DynamoDB (Metadata & Locking):** Quản lý thông tin branch, lịch sử commit, mapping giữa tệp và các fragment, và xử lý cơ chế locking với độ trễ cực thấp.
+5. **AWS Cloud Map:** Cung cấp dịch vụ service discovery giúp các Edge Pods tự động phát hiện và kết nối với Write Tier thông qua DNS nội bộ.

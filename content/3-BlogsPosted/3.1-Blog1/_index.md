@@ -6,78 +6,40 @@ chapter: false
 pre: " <b> 3.1. </b> "
 ---
 
-# Why Epic Games Developed Lore and How AWS Helps Optimize Binary Assets Storage
+# Why Epic Games Developed Lore and How AWS Optimizes Binary Asset Storage
 
-Hi everyone in the AWS Study Group VN community. I want to share this article with you.
+### 1. Main Content
+Traditional version control systems (like Git) are not optimized for large binary assets (such as textures, 3D models, animations, or engine binaries) in game development. Every time an asset is modified, Git often saves the entire new file version, resulting in wasted storage space and high infrastructure costs.
 
-If you have ever developed games with thousands of textures, models, animations, or engine binaries, you probably know that traditional version control systems like Git are not well-suited for binary assets. Every time a few hundred MB file is edited, the system stores almost the entire file as a new version, even if only a tiny part changed. Over time, storage size grows exponentially, leading to massive storage costs.
-
-To solve this problem, Epic Games developed **Lore** – an open-source version control system designed specifically for binary assets. Meanwhile, AWS introduced a reference architecture to deploy Lore on the cloud.
-
-In this article, we will explore:
-* How does Lore work differently from traditional version control?
-* What does the deployment architecture on AWS look like?
-* Why does this model help optimize storage costs?
+To solve this challenge, Epic Games developed **Lore** – an open-source version control system specifically designed for binary assets. Lore splits large files into smaller fragments (chunks) identified by cryptographic hashes, maximizing reuse and enabling efficient data deduplication.
 
 ---
 
-## 1. How does Lore work differently?
-
-Instead of saving the entire file after every modification, Lore splits each binary file into multiple fragments (chunks) and identifies them using a cryptographic hash. This means:
-* Only fragments containing modified data are stored.
-* Existing fragments are reused.
-* A fragment that appears in multiple files or projects only needs to be stored once.
-
-As a result, the growth rate of storage size is significantly reduced as the project develops.
+### 2. Key Takeaways
+* **Data Fragmentation:** Binary files are broken into smaller chunks. Only chunks containing modified data are stored as new versions, while unmodified parts are completely reused.
+* **Cost-effective Branching:** Branch creation is near-instantaneous and consumes negligible storage because branches simply reference existing fragments instead of duplicating files.
+* **Cross-Project Deduplication:** Identical fragments across different files or even distinct game projects are only stored once, optimizing storage at the studio scale.
+* **Serverless Cache & Storage:** Utilizes EC2 Edge Pods to cache fragments near clients, combined with ECS and S3 for processing and persistent storage.
 
 ---
 
-## 2. Why does Lore help save costs?
+### 3. Images
+Here is the architecture diagram of the Lore system deployed on AWS:
 
-AWS highlights three prominent benefits:
-* **Reduced storage capacity**: Only modified data is stored instead of full files.
-* **Nearly free branching**: A new branch simply references existing fragments, generating zero new data if assets do not change.
-* **Cross-project data sharing**: Duplicated fragments are only stored once, optimizing resources across the entire studio.
+![Lore Architecture on AWS](/images/3-BlogsPosted/Blog1/blog1.png)
 
 ---
 
-## 3. Lore Architecture on AWS
-
-AWS deploys Lore using several familiar services, each playing a dedicated role to ensure performance and scalability:
-
-* **Amazon EC2 (Edge Pods)**: Receives connections from clients and caches fragments on NVMe drives to accelerate access times.
-* **Amazon ECS (Write Tier)**: Handles deduplication and writes new data.
-* **Amazon S3**: Safely stores unique fragments for long-term retention.
-* **Amazon DynamoDB**: Manages metadata, locks, and branch information with sub-millisecond latency.
-* **AWS Cloud Map**: Helps Edge Pods automatically discover the Write Tier using internal DNS.
-
-This architecture enables the system to scale easily while reducing load on the primary data storage layer.
+### 4. Links
+* **Original Article:** [How Lore rethinks binary asset storage on AWS](https://aws.amazon.com/blogs/gametech/how-lore-rethinks-binary-asset-storage-on-aws/)  
+* **Facebook Post Link:** [AWS Study Group VN](https://web.facebook.com/groups/660548818043427/user/100029043690648)  
 
 ---
 
-## 4. When should you use Lore?
-
-The Lore system is particularly suitable for:
-* Game studios with multiple artists and developers collaborating.
-* Projects containing a large volume of binary assets.
-* Enterprises developing multiple game titles concurrently.
-* Teams looking to optimize storage costs and sync data quickly on AWS.
-
----
-
-## Conclusion
-
-Lore brings a new approach to binary asset management by breaking down data into reusable fragments instead of saving full files after every modification.
-
-Combined with **Amazon EC2, Amazon ECS, Amazon S3, Amazon DynamoDB**, and **AWS Cloud Map**, this architecture helps:
-1. Significantly reduce storage costs.
-2. Accelerate asset synchronization.
-3. Enable efficient branching.
-4. Share data across multiple projects.
-5. Scale easily as the studio grows.
-
-For game studios working with large binary assets, this is a highly recommended approach to building a modern version control system on AWS.
-
-> **Original Article:** [How Lore rethinks binary asset storage on AWS](https://aws.amazon.com/blogs/gametech/how-lore-rethinks-binary-asset-storage-on-aws/)  
-> **Facebook Post Link:** [AWS Study Group](https://web.facebook.com/groups/660548818043427/user/100029043690648)  
-> **Tags:** #AWS #AWSForGames #EpicGames #Lore #AmazonS3 #AmazonDynamoDB #AmazonEC2 #AmazonECS #CloudArchitecture #GameDevelopment #VersionControl #BinaryAssets #StorageOptimization
+### 5. Guides
+The Lore architecture on AWS consists of the following core components:
+1. **Amazon EC2 (Edge Pods):** Acts as the entry point for clients, caching fragments locally on NVMe drives to accelerate data retrieval for developers and artists.
+2. **Amazon ECS (Write Tier):** Receives newly uploaded fragments, handles the deduplication pipeline, and coordinates persistent writes.
+3. **Amazon S3 (Storage Tier):** Provides highly durable, secure, and cost-effective long-term storage for unique fragments.
+4. **Amazon DynamoDB (Metadata & Locking):** Manages branch information, commit history, mapping references between files and fragments, and locking mechanisms with single-digit millisecond latency.
+5. **AWS Cloud Map:** Enables dynamic service discovery, allowing Edge Pods to automatically find and connect to the Write Tier using internal DNS names.
