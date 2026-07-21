@@ -78,9 +78,9 @@ Below is the chronological, step-by-step user journey executed on the live front
 4. **Reveal General Clue:** Clicking the **💡 Gợi ý bước 1 (Khái quát)** tab reveals the first general hint.
    ![Hint 1 Revealed](/images/5-Workshop/5.13-Web-Interface/test_create_riddle_hint.png)
 5. **Reveal Final Answer:** Clicking **🏆 XEM ĐÁP ÁN CUỐI CÙNG** expands the answer badge to reveal the target keyword `"Trái Đất"`.
-   ![Answer Uncovered](/images/5-Workshop/5.13-Web-Interface/test_create_riddle_answer.png)
+   ![Answer Uncovered](/images/5-Workshop/5.13-Web-Interface/test_create_riddle_saved.png)
 6. **Save to local Library:** Clicking **Lưu Vào Thư Viện** writes the riddle record to localStorage. The button state updates to `⭐ Đã Lưu Vào Thư Viện`.
-   ![Riddle Saved](/images/5-Workshop/5.13-Web-Interface/test_create_riddle_saved.png)
+   ![Riddle Saved](/images/5-Workshop/5.13-Web-Interface/test_create_riddle_answer.png)
 
 #### 2.3. Step 3: Community Interactivity & Solving (Community Tab - Simulated)
 Navigating to the **Community** feed containing public riddle contributions:
