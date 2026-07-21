@@ -34,7 +34,7 @@ Chúng ta áp dụng các chuẩn kiến trúc tối ưu sau:
    - **Endpoint Type**: Chọn **Regional** hoặc **Edge-optimized**.
    - Bấm **Create API**.
 
-   ![api-config](/images/5-Workshop/5.10-APIGateway/AI-Riddle-API.png)
+   ![api-config](/images/5-Workshop/5.10-APIGateway/ai-riddle-api.png)
 
 4. Sau khi tạo thành công, bạn sẽ được chuyển đến trang quản trị tài nguyên.
 

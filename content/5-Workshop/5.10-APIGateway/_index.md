@@ -34,7 +34,7 @@ We apply the following architectural practices:
    - **Endpoint Type**: Choose **Regional** or **Edge-optimized**.
    - Click **Create API**.
 
-   ![api-config](/images/5-Workshop/5.10-APIGateway/AI-Riddle-API.png)
+   ![api-config](/images/5-Workshop/5.10-APIGateway/ai-riddle-api.png)
 
 4. Once the API is created, you will see the resources dashboard.
 

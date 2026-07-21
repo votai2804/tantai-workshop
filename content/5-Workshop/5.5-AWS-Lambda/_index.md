@@ -18,7 +18,7 @@ To ensure security and scalability, we will configure connection Triggers and gr
 #### Step 1: Manage and Initialize the AWS Lambda Function
 1. Navigate to the **AWS Management Console** and search for **Lambda** to go to the main dashboard.
 
-   ![AWS Lambda Dashboard](/images/5-Workshop/5.5-AWS-Lambda/1-Lambda-Dashboard.png)
+   ![AWS Lambda Dashboard](/images/5-Workshop/5.5-AWS-Lambda/1-lambda-dashboard.png)
 
 2. Click on the **Functions** tab in the left-hand navigation pane, and click the **Create function** button.
 3. Configure the initialization parameters:
@@ -29,12 +29,12 @@ To ensure security and scalability, we will configure connection Triggers and gr
    - **Permissions**: Leave the default option to automatically create a new Execution role for the Lambda.
 4. Click **Create function** at the bottom to save.
 
-   ![Create Lambda function](/images/5-Workshop/5.5-AWS-Lambda/2-Lambda-Create.png)
+   ![Create Lambda function](/images/5-Workshop/5.5-AWS-Lambda/2-lambda-create.png)
 
 5. Once the function is created, you will be redirected to the function designer screen.
    *(Note: The following screenshot shows the temporary function name `ABC` used during creation, but the configurations are identical).*
 
-   ![Successful function creation](/images/5-Workshop/5.5-AWS-Lambda/3-Lambda-Success-ABC.png)
+   ![Successful function creation](/images/5-Workshop/5.5-AWS-Lambda/3-lambda-success-abc.png)
 
 ---
 
@@ -48,7 +48,7 @@ We need to add triggers to connect our Lambda function to other services in our 
    - Check the recursive invocation warning acknowledgement box.
    - Click **Add** to confirm.
 
-   ![Configure S3 Trigger](/images/5-Workshop/5.5-AWS-Lambda/4-S3-Trigger.png)
+   ![Configure S3 Trigger](/images/5-Workshop/5.5-AWS-Lambda/4-s3-trigger.png)
 
 2. **Add Amazon DynamoDB Trigger**:
    - Click **Add trigger** again.
@@ -56,7 +56,7 @@ We need to add triggers to connect our Lambda function to other services in our 
    - Select your database table: `AiRiddleGenerator_Core`.
    - Click **Add** to link.
 
-   ![Configure DynamoDB Trigger](/images/5-Workshop/5.5-AWS-Lambda/5-DynamoDB-Trigger.png)
+   ![Configure DynamoDB Trigger](/images/5-Workshop/5.5-AWS-Lambda/5-dynamodb-trigger.png)
 
 3. **Add Amazon API Gateway Trigger**:
    - Click **Add trigger**.
@@ -65,7 +65,7 @@ We need to add triggers to connect our Lambda function to other services in our 
    - Find and select your project API: `AI-Riddle-API`.
    - Click **Add** to associate API Gateway as the HTTP endpoint gateway leading into your Lambda.
 
-   ![Configure API Gateway Trigger](/images/5-Workshop/5.5-AWS-Lambda/6-APIGateway-Trigger.png)
+   ![Configure API Gateway Trigger](/images/5-Workshop/5.5-AWS-Lambda/6-apigateway-trigger.png)
 
 ---
 
@@ -156,7 +156,7 @@ export const handler = async (event) => {
 
 3. Click the **Deploy** button on the toolbar to apply the backend updates.
 
-   ![Lambda code source editor](/images/5-Workshop/5.5-AWS-Lambda/7-Lambda-Code.png)
+   ![Lambda code source editor](/images/5-Workshop/5.5-AWS-Lambda/7-lambda-code.png)
 
 ---
 
@@ -165,42 +165,42 @@ By default, the new Lambda function does not have permissions to read/write from
 
 1. Under the Lambda **Configuration** tab, select **Permissions** from the left-hand menu. Locate the **Execution role** section and click the link in **Role name** (e.g. `Create-Riddle-role-xvuvaltf`). This opens the role configurations in the **AWS IAM Console**.
 
-   ![View execution role details](/images/5-Workshop/5.5-AWS-Lambda/8-Lambda-Permissions.png)
+   ![View execution role details](/images/5-Workshop/5.5-AWS-Lambda/8-lambda-permissions.png)
 
 2. **Create and Attach Custom S3 Policy**:
    - In the Role Summary screen, click **Add permissions** -> **Create inline policy**.
 
-     ![Create inline policy](/images/5-Workshop/5.5-AWS-Lambda/9-IAM-Inline-Policy-Create.png)
+     ![Create inline policy](/images/5-Workshop/5.5-AWS-Lambda/9-iam-inline-policy-create.png)
 
    - In the Policy Editor, select **S3** as the service.
    - For Actions, check the following object CRUD permissions:
      - `GetObject`
      
-       ![Check GetObject](/images/5-Workshop/5.5-AWS-Lambda/10-S3-Policy-GetObject.png)
+       ![Check GetObject](/images/5-Workshop/5.5-AWS-Lambda/10-s3-policy-getobject.png)
        
      - `DeleteObject`
      
-       ![Check DeleteObject](/images/5-Workshop/5.5-AWS-Lambda/11-S3-Policy-DeleteObject.png)
+       ![Check DeleteObject](/images/5-Workshop/5.5-AWS-Lambda/11-s3-policy-deleteobject.png)
        
      - `PutObject`
      
-       ![Check PutObject](/images/5-Workshop/5.5-AWS-Lambda/12-S3-Policy-PutObject.png)
+       ![Check PutObject](/images/5-Workshop/5.5-AWS-Lambda/12-s3-policy-putobject.png)
        
    - Under Resources, select **Specific** and click **Add ARNs** to specify the target S3 bucket (e.g. `arn:aws:s3:::ai-riddle-storage/*`). Proceed to review, name the policy `S3AccessPolicy`, and click **Create policy**.
 
-     ![Add ARNs resource target](/images/5-Workshop/5.5-AWS-Lambda/13-S3-Policy-Resources.png)
+     ![Add ARNs resource target](/images/5-Workshop/5.5-AWS-Lambda/13-s3-policy-resources.png)
 
 3. **Attach AWS Managed Policies**:
    - Back on the Role Details page, click **Add permissions** -> **Attach policies**.
 
-     ![Attach managed policies](/images/5-Workshop/5.5-AWS-Lambda/14-Attach-Managed-Policies.png)
+     ![Attach managed policies](/images/5-Workshop/5.5-AWS-Lambda/14-attach-managed-policies.png)
 
    - Add DynamoDB privileges: Search `DynamoDB` in the search box, and select **AmazonDynamoDBFullAccess** (or `AmazonDynamoDBFullAccess_v2`).
 
-     ![Search and check DynamoDB Full Access](/images/5-Workshop/5.5-AWS-Lambda/15-Attach-DynamoDB-Policy.png)
+     ![Search and check DynamoDB Full Access](/images/5-Workshop/5.5-AWS-Lambda/15-attach-dynamodb-policy.png)
 
    - Add Bedrock privileges: Search `bedrock`, and select **AmazonBedrockFullAccess** (or `AmazonBedrockMantleFullAccess` depending on your region).
 
-     ![Search and check Bedrock Access](/images/5-Workshop/5.5-AWS-Lambda/16-Attach-Bedrock-Policy.png)
+     ![Search and check Bedrock Access](/images/5-Workshop/5.5-AWS-Lambda/16-attach-bedrock-policy.png)
 
    - Click **Add permissions** at the bottom. Your Lambda execution role now possesses all three backend operations credentials to securely run the application!
