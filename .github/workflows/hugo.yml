@@ -44,7 +44,7 @@ jobs:
           hugo \
             --gc \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
+            --baseURL "https://votai2804.github.io/tantai-workshop/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
