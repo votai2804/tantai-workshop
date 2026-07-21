@@ -23,7 +23,7 @@ chapter: false
 
 &emsp; **Class:** 22DTHG1
 
-&emsp; **Internship Company:** Amazon Web Services Vietnam Co., Ltd.
+&emsp; **Internship Company:** Amazon Web Services  Việt Nam Co., Ltd.
 
 &emsp; **Internship Position:** Workforce Bootcamp - First Cloud AI Journey
 
