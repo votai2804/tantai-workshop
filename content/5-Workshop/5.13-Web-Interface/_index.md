@@ -12,7 +12,7 @@ After completing the configuration of the backend Serverless infrastructure on A
 
 The web application is designed as a **Single-Page Application (SPA)** built on **React 19** and compiled using the ultra-fast build tool **Vite 8**. The user interface implements a modern **Glassmorphism** styling theme, with fluid transition animations and a fully responsive layout optimized across devices.
 
-> [!IMPORTANT]
+
 > **System Integration Status:**
 > *   **Real Integration (Active Backend):** The **Create Riddle (Generator)** module is the only active integration, connecting directly through API Gateway to invoke AWS Lambda and Amazon Bedrock LLM to generate riddles.
 > *   **Future Development Modules:** The **Login (Cognito)**, **Community**, and **My Library** modules are currently simulated on the client side (Mock Data / LocalStorage) to demonstrate E2E user flow prototypes and show how DynamoDB Single-Table Design operates in the UI. These are scheduled for actual AWS integration in future releases.
@@ -98,3 +98,6 @@ To transform the prototype into a production-ready application integrated with l
 *   **Architectural Consistency (End-to-End Serverless):** The frontend interfaces smoothly with simulated Single-Table Design queries in DynamoDB, Cognito security claims, and S3 assets, mirroring the cloud configuration logic accurately.
 *   **UX/UI Quality:** The Glassmorphism design is clean, interactive, and tailored to educators and parents. Navigation transitions are near-instantaneous due to the SPA setup.
 *   **Scalability:** The React codebase is modularly organized, making it easy to add features like interactive puzzle games or student gradebooks in the future.
+
+---
+
