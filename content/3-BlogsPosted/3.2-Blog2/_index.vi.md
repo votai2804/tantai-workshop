@@ -69,7 +69,7 @@ Dưới đây là các hình ảnh và sơ đồ minh họa cụ thể luồng x
 
 ### 4. Link (References)
 * **Bài viết gốc:** [Secure API Access with Amazon Cognito, Amazon API Gateway, and AWS Lambda](https://aws.amazon.com/blogs/compute/secure-api-access-with-amazon-cognito-federated-identities-amazon-cognito-user-pools-and-amazon-api-gateway/)  
-* **Link bài đăng Facebook:** 
+* **Link bài đăng Facebook:** [AWS Study Group VN chưa duyệt](https://www.facebook.com/share/p/1ENb8bUptS/)
 
 ---
 

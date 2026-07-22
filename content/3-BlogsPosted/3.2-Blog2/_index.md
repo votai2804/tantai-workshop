@@ -69,7 +69,7 @@ Below are the architectural diagrams and validation flows from the original arti
 
 ### 4. Links
 * **Original Article:** [Secure API Access with Amazon Cognito, Amazon API Gateway, and AWS Lambda](https://aws.amazon.com/blogs/compute/secure-api-access-with-amazon-cognito-federated-identities-amazon-cognito-user-pools-and-amazon-api-gateway/)  
-* **Facebook Post Link:** 
+* **Facebook Post Link:** [AWS Study Group VN Not yet approved](https://www.facebook.com/share/p/1ENb8bUptS/)
 
 ---
 
